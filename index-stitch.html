@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Japón Compacto — Importación Directa de Maquinaria Compacta</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — Industrial Intelligence System
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --bg:          #10141a;
+  --bg-low:      #181c22;
+  --bg-card:     #1c2026;
+  --bg-high:     #262a31;
+  --bg-highest:  #31353c;
+  --bg-lowest:   #0a0e14;
+  --bg-bright:   #353940;
+  --bg-navy:     #0d1b2a;
+  --primary:     #bac8dc;
+  --secondary:   #ffb3b1;
+  --cta:         #ad0224;
+  --on-surface:  #dfe2eb;
+  --muted:       #c4c6cc;
+  --outline:     #44474c;
+  --green:       #4ade80;
+  --error:       #ffb4ab;
+  --error-bg:    #93000a;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ═══ RESET & BASE ══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font); background: var(--bg); color: var(--on-surface); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; object-fit: cover; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align: middle; line-height: 1; }
+.fill { font-variation-settings: 'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+/* ═══ LAYOUT HELPERS ════════════════════════════════════ */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-5 { gap: 20px; }
+.gap-6 { gap: 24px; }
+.gap-8 { gap: 32px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.w-full { width: 100%; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+.hidden { display: none !important; }
+
+/* ═══ TYPOGRAPHY ════════════════════════════════════════ */
+.label {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--secondary);
+}
+.overline {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--muted);
+}
+.section-label {
+  font-size: .62rem; font-weight: 800;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--secondary);
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+}
+.section-label::before {
+  content: ''; display: inline-block;
+  width: 20px; height: 2px; background: var(--secondary);
+}
+h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -.025em; }
+h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+h4 { font-size: 1.1rem; font-weight: 800; letter-spacing: -.01em; }
+h5 { font-size: .95rem; font-weight: 800; }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-muted { color: var(--muted); }
+.text-green { color: var(--green); }
+.text-error { color: var(--error); }
+.small-caps { font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ═══ SECTION SPACING ═══════════════════════════════════ */
+.section { padding: 96px 0; }
+.section-sm { padding: 56px 0; }
+
+/* ═══ NAVBAR ════════════════════════════════════════════ */
+.navbar {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(16,20,26,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(68,71,76,.3);
+  height: 68px;
+  display: flex; align-items: center;
+  padding: 0 32px;
+  justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: .95rem; letter-spacing: -.01em; color: var(--primary);
+}
+.logo-mark {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--cta); display: flex; align-items: center; justify-content: center;
+  font-size: .82rem; font-weight: 900; color: #fff; letter-spacing: -.04em;
+}
+.logo span { color: var(--secondary); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-link {
+  font-size: .67rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--primary);
+  transition: color .2s; padding: 4px 0;
+  border-bottom: 2px solid transparent; transition: all .2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--secondary); border-bottom-color: var(--secondary); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.btn-dashboard {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg-highest); color: var(--primary);
+  font-size: .67rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 8px; transition: background .2s;
+}
+.btn-dashboard:hover { background: var(--bg-bright); }
+.lang-toggle { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.lang-toggle:hover { color: var(--secondary); }
+.hamburger { display: none; color: var(--primary); padding: 6px; }
+
+/* Mobile nav */
+.mobile-nav {
+  display: none; position: fixed; top: 68px; left: 0; width: 100%;
+  background: var(--bg-low); border-bottom: 1px solid rgba(68,71,76,.3);
+  padding: 20px 24px; flex-direction: column; gap: 4px; z-index: 99;
+}
+.mobile-nav a {
+  display: block; padding: 12px 0; font-size: .82rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--primary);
+  border-bottom: 1px solid rgba(68,71,76,.2);
+}
+.mobile-nav a:last-child { border-bottom: none; color: var(--secondary); }
+.mobile-nav.open { display: flex; }
+
+/* ═══ HERO ══════════════════════════════════════════════ */
+.hero {
+  min-height: 93vh; display: flex; align-items: center;
+  padding: 100px 0 60px; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 40%, rgba(13,27,42,.8) 0%, var(--bg) 70%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: .04;
+  background-image: linear-gradient(var(--primary) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.hero-glow-1 {
+  position: absolute; top: 30%; left: 20%;
+  width: 500px; height: 500px;
+  background: rgba(173,2,36,.07); border-radius: 50%; filter: blur(100px);
+}
+.hero-glow-2 {
+  position: absolute; bottom: 0; right: 0;
+  width: 400px; height: 400px;
+  background: rgba(13,27,42,.5); border-radius: 50%; filter: blur(80px);
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .62rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--secondary); margin-bottom: 22px;
+}
+.hero-tag::before {
+  content: ''; width: 24px; height: 2px; background: var(--secondary); display: block;
+}
+.hero h1 span { color: var(--secondary); }
+.hero h1 em { color: var(--primary); font-style: normal; }
+.hero-sub {
+  color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 500px; margin: 20px 0 32px;
+}
+.hero-sub strong { color: var(--secondary); font-weight: 700; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 44px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--cta); color: #fff; font-weight: 700;
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 10px; transition: filter .2s;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--outline); color: var(--primary); font-weight: 700;
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: 14px 28px; border-radius: 10px; transition: background .2s;
+}
+.btn-outline:hover { background: var(--bg-highest); }
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 15px rgba(173,2,36,.3); }
+  50%      { box-shadow: 0 0 30px rgba(173,2,36,.6); }
+}
+.hero-stats { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+.hero-stat-val { font-size: 2.1rem; font-weight: 900; letter-spacing: -.03em; color: #fff; line-height: 1; }
+.hero-stat-val span { color: var(--secondary); }
+.hero-stat-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.hero-divider { width: 1px; height: 48px; background: var(--outline); opacity: .4; }
+/* Hero card panel */
+.hero-card-panel {
+  background: var(--bg-card); border-radius: 20px; padding: 4px;
+  border: 1px solid rgba(68,71,76,.2);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.hero-card-inner { background: var(--bg-low); border-radius: 16px; padding: 24px; }
+.hero-feed-label {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+}
+.feed-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.unit-card {
+  background: var(--bg-highest); border-radius: 12px; padding: 18px;
+  margin-bottom: 12px; border-left: 2px solid transparent; transition: background .2s;
+}
+.unit-card:last-child { margin-bottom: 0; }
+.unit-card.green { border-left-color: var(--green); }
+.unit-card.red   { border-left-color: var(--secondary); }
+.unit-name { font-weight: 800; font-size: 1rem; letter-spacing: -.01em; }
+.unit-meta { font-size: .7rem; color: var(--muted); margin-top: 2px; }
+.unit-margin { font-size: 1.6rem; font-weight: 900; line-height: 1; }
+.unit-margin.green { color: var(--green); }
+.unit-margin.red   { color: var(--secondary); }
+.unit-margin-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip {
+  background: var(--bg-card); color: var(--muted);
+  font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.hero-bottom-note {
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(68,71,76,.25);
+  display: flex; align-items: center; gap: 6px;
+  font-size: .68rem; color: var(--muted);
+}
+
+/* ═══ TRUST BAR ═════════════════════════════════════════ */
+.trust-bar {
+  background: var(--bg-low);
+  border-top: 1px solid rgba(68,71,76,.2);
+  border-bottom: 1px solid rgba(68,71,76,.2);
+  padding: 24px 0;
+}
+.trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.trust-icon { color: var(--secondary); font-size: 1.4rem; }
+.trust-name { font-size: .67rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
+.trust-desc { font-size: .63rem; color: var(--muted); }
+
+/* ═══ SERVICE CARDS ═════════════════════════════════════ */
+.service-card {
+  background: var(--bg-card); border-radius: 18px; padding: 32px;
+  border: 1px solid rgba(68,71,76,.15); transition: background .2s;
+}
+.service-card:hover { background: var(--bg-high); }
+.service-icon-wrap {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: rgba(173,2,36,.12); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; transition: background .2s;
+}
+.service-card:hover .service-icon-wrap { background: rgba(173,2,36,.25); }
+.service-icon-wrap .material-symbols-outlined { color: var(--secondary); font-size: 1.4rem; }
+.service-num { font-size: .6rem; font-weight: 900; letter-spacing: .2em; color: var(--secondary); margin-bottom: 10px; }
+.service-card h3 { font-size: 1.05rem; margin-bottom: 12px; }
+.service-card p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+/* ═══ CATALOG ════════════════════════════════════════════ */
+.catalog-bg { background: var(--bg-low); }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.filter-btn {
+  font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 9px 20px; border-radius: 100px; border: none;
+  background: var(--bg-highest); color: var(--muted);
+  transition: all .2s; cursor: pointer;
+}
+.filter-btn:hover { background: var(--bg-bright); color: var(--primary); }
+.filter-btn.active { background: var(--cta); color: #fff; }
+.catalog-grid { display: flex; flex-wrap: wrap; }
+.catalog-item { padding: 10px; width: 33.333%; }
+.machine-card {
+  background: var(--bg-card); border-radius: 18px; overflow: hidden;
+  transition: all .4s; height: 100%;
+}
+.machine-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,.45); transform: translateY(-3px); }
+.card-img {
+  height: 210px; position: relative; overflow: hidden;
+  background: var(--bg-highest);
+}
+.card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(.85) saturate(.9);
+  transition: transform .6s, filter .4s;
+}
+.machine-card:hover .card-img img { transform: scale(1.06); filter: brightness(.95) saturate(1.1); }
+.card-img-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,32,38,.85) 0%, transparent 60%);
+}
+.card-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--cta); color: #fff;
+  font-size: .65rem; font-weight: 900; letter-spacing: .06em;
+  padding: 4px 12px; border-radius: 100px;
+}
+.card-badge.green { background: rgba(74,222,128,.15); color: var(--green); border: 1px solid rgba(74,222,128,.3); }
+.card-pick {
+  position: absolute; top: 12px; left: 12px;
+  font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.card-pick.green { background: rgba(74,222,128,.15); color: var(--green); border: 1px solid rgba(74,222,128,.35); }
+.card-pick.red   { background: rgba(173,2,36,.2); color: var(--secondary); border: 1px solid rgba(255,179,177,.25); }
+.card-body { padding: 20px; }
+.card-brand { font-size: .57rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.card-model { font-size: 1.05rem; font-weight: 900; letter-spacing: -.01em; text-transform: uppercase; margin-bottom: 16px; }
+.card-spec-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; }
+.card-spec-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.card-spec-val { font-size: .82rem; font-weight: 600; }
+.card-spec-val.accent { color: var(--green); font-weight: 800; }
+.card-spec-val.accent-red { color: var(--secondary); font-weight: 800; }
+.card-cta {
+  width: 100%; margin-top: 16px; padding: 11px;
+  border: 1px solid rgba(68,71,76,.5); border-radius: 8px;
+  font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--primary); transition: all .2s; cursor: pointer; background: none;
+}
+.card-cta:hover { background: var(--cta); color: #fff; border-color: var(--cta); }
+/* Accent border for best picks */
+.machine-card.border-green { border-left: 2px solid var(--green); }
+.machine-card.border-red   { border-left: 2px solid var(--secondary); }
+
+/* ═══ MATRIX ════════════════════════════════════════════ */
+.matrix-header { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; margin-bottom: 44px; }
+.matrix-kpi { display: flex; gap: 16px; align-self: end; }
+.kpi-box {
+  background: var(--bg-card); border-radius: 14px; padding: 20px 24px;
+  flex: 1; text-align: center; border: 1px solid rgba(68,71,76,.15);
+}
+.kpi-val { font-size: 2.5rem; font-weight: 900; color: var(--secondary); line-height: 1; }
+.kpi-lbl { font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+.matrix-tabs { display: flex; border-bottom: 1px solid rgba(68,71,76,.3); margin-bottom: 28px; }
+.mtab {
+  padding: 14px 28px; font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; cursor: pointer; color: var(--muted);
+  border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .2s; background: none; border-top: none; border-left: none; border-right: none;
+}
+.mtab.active-buy  { color: var(--green);     border-bottom-color: var(--green); }
+.mtab.active-risk { color: var(--secondary); border-bottom-color: var(--secondary); }
+.mpanel { display: none; }
+.mpanel.active { display: block; }
+.buy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+.buy-card {
+  background: var(--bg-card); border-radius: 16px; padding: 24px;
+  border-left: 2px solid var(--outline); transition: background .2s;
+}
+.buy-card:hover { background: var(--bg-high); }
+.buy-card.green { border-left-color: var(--green); }
+.buy-card.red   { border-left-color: var(--secondary); }
+.buy-card-brand { font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.buy-card-model { font-size: 1rem; font-weight: 900; letter-spacing: -.01em; margin-bottom: 2px; }
+.buy-card-margin { font-size: 1.5rem; font-weight: 900; margin: 8px 0 14px; }
+.buy-card-margin.green { color: var(--green); }
+.buy-card-margin.red   { color: var(--secondary); }
+.buy-card-margin.blue  { color: var(--primary); }
+.buy-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.buy-chip {
+  background: var(--bg-highest); color: var(--muted);
+  font-size: .57rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+.buy-card-body { font-size: .82rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+.signal-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.signal {
+  background: var(--bg-highest); font-size: .62rem; font-weight: 700;
+  padding: 5px 10px; border-radius: 7px;
+}
+.signal.green { color: var(--green); }
+.signal.red   { color: var(--secondary); }
+.signal.blue  { color: var(--primary); }
+.pick-badge {
+  float: right; margin-top: -2px;
+  font-size: .57rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 100px;
+}
+.pick-badge.green { background: rgba(74,222,128,.1); color: var(--green); border: 1px solid rgba(74,222,128,.25); }
+.pick-badge.red   { background: rgba(255,179,177,.08); color: var(--secondary); border: 1px solid rgba(255,179,177,.2); }
+.sweet-spot {
+  background: var(--bg-navy); border-radius: 16px; padding: 24px 28px;
+  border: 1px solid rgba(68,71,76,.2);
+  position: relative; overflow: hidden;
+}
+.sweet-spot::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--secondary), transparent);
+}
+.sweet-spot-inner { display: flex; gap: 16px; align-items: flex-start; }
+.sweet-spot-text { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+.sweet-spot-text strong { color: #fff; }
+.sweet-spot-text .accent { color: var(--secondary); }
+/* Risk panel */
+.risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.risk-card {
+  background: var(--bg-card); border-radius: 16px; padding: 24px;
+  border-left: 2px solid;
+}
+.risk-card.error { border-left-color: var(--error); }
+.risk-card.warn  { border-left-color: #facc15; }
+.risk-cat { font-size: .57rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px; }
+.risk-cat.error { color: var(--error); }
+.risk-cat.warn  { color: #facc15; }
+.risk-card h5 { font-size: .95rem; margin-bottom: 12px; }
+.risk-list { font-size: .8rem; color: var(--muted); line-height: 1; }
+.risk-list li { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; }
+.risk-list .material-symbols-outlined { font-size: .9rem; margin-top: 2px; flex-shrink: 0; }
+.risk-verdict { margin-top: 10px; font-size: .68rem; font-weight: 700; }
+.risk-verdict.error { color: var(--error); }
+.risk-verdict.warn  { color: #facc15; }
+
+/* ═══ PIPELINE ═══════════════════════════════════════════ */
+.pipeline-bg { background: var(--bg-lowest); }
+.pipeline-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; margin-bottom: 64px; }
+.pipeline-steps::before {
+  content: ''; position: absolute; top: 30px; left: 8%; right: 8%; height: 2px;
+  background: rgba(68,71,76,.25); z-index: 0;
+}
+.pipe-step { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; }
+.pipe-num {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--bg-highest);
+  display: flex; align-items: center; justify-content: center;
+  border: 4px solid var(--bg); font-weight: 900; font-size: 1rem;
+  margin-bottom: 16px; transition: all .2s; cursor: default;
+}
+.pipe-num:hover { background: var(--primary); color: var(--bg-navy); transform: scale(1.1); }
+.pipe-num.accent { background: var(--cta); color: #fff; box-shadow: 0 0 20px rgba(173,2,36,.4); }
+.pipe-step h5 { font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.pipe-step h5.accent { color: var(--secondary); }
+.pipe-step p { font-size: .72rem; color: var(--muted); line-height: 1.55; padding: 0 8px; }
+/* Security options */
+.security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.security-card {
+  background: var(--bg-card); border-radius: 18px; padding: 36px;
+  border: 1px solid rgba(68,71,76,.12); transition: background .2s;
+}
+.security-card:hover { background: var(--bg-high); }
+.security-card.premium {
+  background: var(--bg-navy); border: 1px solid rgba(255,179,177,.15);
+  position: relative; overflow: hidden;
+}
+.premium-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--secondary); color: #680011;
+  font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+}
+.security-card-icon-wrap {
+  width: 48px; height: 48px; border-radius: 10px; background: var(--bg-bright);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+}
+.security-card.premium .security-card-icon-wrap {
+  background: var(--cta); box-shadow: 0 0 16px rgba(173,2,36,.3);
+}
+.security-card-icon-wrap .material-symbols-outlined { color: var(--primary); font-size: 1.3rem; }
+.security-card.premium .security-card-icon-wrap .material-symbols-outlined { color: #fff; }
+.security-card h3 { font-size: 1.2rem; margin-bottom: 22px; }
+.security-list { font-size: .84rem; margin-bottom: 24px; }
+.security-list li { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(68,71,76,.15); color: var(--muted); }
+.security-list li:last-child { border-bottom: none; }
+.security-list .material-symbols-outlined { font-size: 1rem; }
+.security-card.premium .security-list li { color: var(--primary); font-weight: 600; }
+.security-price { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 4px; }
+.security-card.premium .security-price { color: var(--secondary); }
+.security-price-lbl { font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ═══ TESTIMONIALS ═══════════════════════════════════════ */
+.testi-card {
+  background: var(--bg-card); border-radius: 16px; padding: 28px;
+  border: 1px solid rgba(68,71,76,.12);
+}
+.stars { color: var(--secondary); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+.testi-card p { font-size: .85rem; color: var(--muted); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+.testi-source { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
+
+/* ═══ CTA BANNER ═════════════════════════════════════════ */
+.cta-banner {
+  background: var(--bg-navy); border-radius: 28px; padding: 72px;
+  text-align: center; position: relative; overflow: hidden;
+  border: 1px solid rgba(68,71,76,.15);
+}
+.cta-glow-1 { position: absolute; top: -80px; left: -80px; width: 240px; height: 240px; background: rgba(173,2,36,.08); border-radius: 50%; filter: blur(60px); }
+.cta-glow-2 { position: absolute; bottom: -80px; right: -80px; width: 240px; height: 240px; background: rgba(255,179,177,.06); border-radius: 50%; filter: blur(60px); }
+.cta-banner h2 { position: relative; z-index: 2; margin-bottom: 16px; }
+.cta-banner p { position: relative; z-index: 2; color: var(--primary); opacity: .8; font-size: 1.05rem; max-width: 520px; margin: 0 auto 40px; }
+.cta-btns { position: relative; z-index: 2; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* ═══ CONTACT ════════════════════════════════════════════ */
+.contact-bg { background: var(--bg-low); }
+.contact-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 48px; align-items: start; }
+.contact-info-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+.contact-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(173,2,36,.12); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-icon .material-symbols-outlined { color: var(--secondary); font-size: 1.1rem; }
+.contact-info-title { font-size: .78rem; font-weight: 700; margin-bottom: 2px; }
+.contact-info-val { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+/* Form */
+.form-box {
+  background: var(--bg-card); border-radius: 18px; padding: 36px;
+  border: 1px solid rgba(68,71,76,.15);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group.full { grid-column: span 2; }
+.form-label {
+  display: block; font-size: .62rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%; background: var(--bg-highest); color: var(--on-surface);
+  border: none; border-radius: 10px; padding: 12px 16px;
+  font-size: .88rem; font-family: var(--font);
+  outline: none; transition: box-shadow .2s;
+}
+.form-input:focus { box-shadow: 0 0 0 2px var(--primary); }
+.form-input::placeholder { color: var(--outline); }
+textarea.form-input { resize: none; min-height: 110px; }
+.form-submit {
+  width: 100%; padding: 14px; background: var(--cta); color: #fff;
+  font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  gap: 8px; transition: filter .2s; cursor: pointer; border: none;
+}
+.form-submit:hover { filter: brightness(1.12); }
+.form-feedback {
+  display: none; margin-top: 14px; padding: 12px 16px;
+  border-radius: 10px; font-size: .82rem; font-weight: 600;
+}
+.form-feedback.ok  { background: rgba(74,222,128,.08); color: var(--green); }
+.form-feedback.err { background: rgba(147,0,10,.2); color: var(--error); }
+
+/* ═══ FOOTER ═════════════════════════════════════════════ */
+.footer {
+  background: var(--bg-navy);
+  border-top: 1px solid rgba(68,71,76,.2);
+  padding: 64px 0 32px;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 40px; margin-bottom: 40px; }
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-logo-text { font-weight: 800; font-size: .95rem; color: var(--secondary); }
+.footer-logo-text span { color: var(--primary); }
+.footer-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+.footer-heading { font-size: .62rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); margin-bottom: 18px; display: block; }
+.footer-link { display: block; font-size: .82rem; color: var(--muted); margin-bottom: 10px; transition: color .2s; }
+.footer-link:hover { color: var(--secondary); }
+.footer-address { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+.footer-bottom { padding-top: 24px; border-top: 1px solid rgba(68,71,76,.15); text-align: center; font-size: .78rem; color: var(--muted); }
+
+/* ═══ FAB ════════════════════════════════════════════════ */
+.fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  background: var(--secondary); color: #680011;
+  border-radius: 100px; padding: 14px 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.4);
+  display: flex; align-items: center; gap: 0;
+  transition: all .3s; overflow: hidden; max-width: 56px;
+}
+.fab:hover { max-width: 200px; gap: 8px; padding-left: 18px; }
+.fab-label { white-space: nowrap; overflow: hidden; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; max-width: 0; transition: max-width .3s; }
+.fab:hover .fab-label { max-width: 100px; }
+.fab .material-symbols-outlined { font-size: 1.2rem; flex-shrink: 0; }
+
+/* ═══ RESPONSIVE ═════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card-panel { display: none; }
+  .matrix-header { grid-template-columns: 1fr; gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.8rem; }
+  .nav-links, .nav-right .btn-dashboard { display: none; }
+  .hamburger { display: flex; }
+  .catalog-item { width: 50%; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .buy-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .pipeline-steps { grid-template-columns: 1fr; }
+  .pipeline-steps::before { display: none; }
+  .security-grid { grid-template-columns: 1fr; }
+  .cta-banner { padding: 40px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .trust-bar .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .catalog-item { width: 100%; }
+  h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<header class="navbar" id="mainNav">
+  <a href="#top" class="logo">
+    <div class="logo-mark">JC</div>
+    Japón<span>Compacto</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#servicios" class="nav-link">Servicios</a>
+    <a href="#maquinas" class="nav-link">Inventario</a>
+    <a href="#matriz" class="nav-link">Guía Compra</a>
+    <a href="#logistica" class="nav-link">Logística</a>
+    <a href="#contacto" class="nav-link">Contacto</a>
+  </nav>
+  <div class="nav-right">
+    <a href="consultor.html" class="btn-dashboard" style="margin-right:4px">
+      <span class="material-symbols-outlined" style="font-size:1rem">manage_search</span> Consultor
+    </a>
+    <a href="dashboard.html" class="btn-dashboard">
+      <span class="material-symbols-outlined" style="font-size:1rem">calculate</span> Dashboard
+    </a>
+    <a href="index-en.html" class="lang-toggle">EN</a>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#servicios" onclick="closeMob()">Servicios</a>
+  <a href="#maquinas" onclick="closeMob()">Inventario</a>
+  <a href="#matriz" onclick="closeMob()">Guía de Compra</a>
+  <a href="#logistica" onclick="closeMob()">Logística</a>
+  <a href="#contacto" onclick="closeMob()">Contacto</a>
+  <a href="dashboard.html">Dashboard →</a>
+  <a href="consultor.html">Consultor →</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Japón → México · Ruta Directa</div>
+        <h1>La plataforma B2B<br/>para importar<br/><span>maquinaria compacta</span><br/><em>directamente de Japón</em></h1>
+        <p class="hero-sub">Excavadoras compactas 3.5T–5.5T desde Yokohama — con <strong>márgenes brutos del 32%–41%</strong> después de aduanas, flete y entrega en México.</p>
+        <div class="hero-btns">
+          <a href="#maquinas" class="btn-primary">
+            <span class="material-symbols-outlined fill" style="font-size:1rem">inventory_2</span>
+            Ver Inventario Calificado
+          </a>
+          <a href="dashboard.html" class="btn-outline">
+            <span class="material-symbols-outlined" style="font-size:1rem">calculate</span>
+            Calculadora de Costos
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">32–<span>41</span>%</div>
+            <div class="hero-stat-lbl">Margen Bruto</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div>
+            <div class="hero-stat-val" style="font-size:1.5rem">$13,000–<span>$20,000</span></div>
+            <div class="hero-stat-lbl">Precio Martillo</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div>
+            <div class="hero-stat-val">45–<span>60</span></div>
+            <div class="hero-stat-lbl">Días Puerta a Puerta</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hero live feed card -->
+      <div class="hero-card-panel">
+        <div class="hero-card-inner">
+          <div class="hero-feed-label">
+            <span class="label flex items-center gap-2">
+              <span class="feed-dot"></span>
+              Unidades Calificadas — Feed en Vivo
+            </span>
+            <span class="overline">USS Yokohama</span>
+          </div>
+          <div class="unit-card green">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="overline" style="margin-bottom:2px">⭐ Mejor Opción #1 · Kubota</div>
+                <div class="unit-name">KX155-5</div>
+                <div class="unit-meta">2021 · 1,580 hrs · Grado 4</div>
+              </div>
+              <div class="text-right">
+                <div class="unit-margin green">+41%</div>
+                <div class="unit-margin-lbl">Margen bruto</div>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">5.5 t</span>
+              <span class="chip">~$14,500 USD</span>
+              <span class="chip">USS Yokohama</span>
+            </div>
+          </div>
+          <div class="unit-card red">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="overline" style="margin-bottom:2px">⭐ Mejor Opción #2 · Komatsu</div>
+                <div class="unit-name">PC45MR-5</div>
+                <div class="unit-meta">2020 · 2,100 hrs · Grado 3.5</div>
+              </div>
+              <div class="text-right">
+                <div class="unit-margin red">+38%</div>
+                <div class="unit-margin-lbl">Margen bruto</div>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">4.5 t ZTS</span>
+              <span class="chip">~$13,800 USD</span>
+              <span class="chip">JAA Kanagawa</span>
+            </div>
+          </div>
+          <div class="hero-bottom-note">
+            <span class="material-symbols-outlined fill text-secondary" style="font-size:.9rem">verified_user</span>
+            Todas las unidades inspeccionadas · Despacho aduanal incluido
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ══════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="grid-4">
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">anchor</span>
+        <div class="trust-name">Fuente Directa</div>
+        <div class="trust-desc">Casas de subasta japonesas</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">receipt_long</span>
+        <div class="trust-name">Aduanas Completas</div>
+        <div class="trust-desc">IGI, IVA, DTA incluidos</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">local_shipping</span>
+        <div class="trust-name">Entrega Nacional</div>
+        <div class="trust-desc">4 destinos en México</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">shield</span>
+        <div class="trust-name">Seguridad</div>
+        <div class="trust-desc">Escolta armada o seguro</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICIOS ═════════════════════════════════════════ -->
+<section class="section" id="servicios">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="section-label" style="justify-content:center">Lo Que Hacemos</div>
+      <h2>Servicios de Importación Integral</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:560px;margin:16px auto 0;line-height:1.7">Desde el piso de subasta en Japón hasta tu sitio de obra — gestionamos cada paso del proceso.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">search</span></div>
+        <div class="service-num">01</div>
+        <h3>Fuente Directa de Japón</h3>
+        <p>Accedemos a subastas en vivo de USS, AUCNET, JAA y KSAA — aplicando filtro estricto Grado 3.5+ para identificar maquinaria con mayor potencial de reventa en México.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">description</span></div>
+        <div class="service-num">02</div>
+        <h3>Despacho Aduanal Completo</h3>
+        <p>Gestionamos el proceso completo: IGI (5% arancel), IVA (16%), DTA, cumplimiento NOM, agente aduanal y manejo portuario en Lázaro Cárdenas o Manzanillo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">route</span></div>
+        <div class="service-num">03</div>
+        <h3>Logística Interior</h3>
+        <p>Entregamos a Querétaro, Puebla, CDMX y Quintana Roo — con escolta armada para corredores de alto riesgo o seguro integral de carga en rutas estándar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATÁLOGO ═══════════════════════════════════════════ -->
+<section class="section catalog-bg" id="maquinas">
+  <div class="container">
+    <div class="flex justify-between items-end flex-wrap gap-6" style="margin-bottom:40px">
+      <div>
+        <div class="section-label">Inventario Actual</div>
+        <h2>Catálogo de Alta Rentabilidad</h2>
+      </div>
+      <p style="color:var(--muted);font-size:.84rem;max-width:320px;text-align:right;line-height:1.6">Margen proyectado basado en subastas recientes. Precio martillo $13,000–$20,000 USD.</p>
+    </div>
+
+    <div class="filter-bar" id="catalogFilters">
+      <button class="filter-btn active" data-filter="*">Todas</button>
+      <button class="filter-btn" data-filter=".excavator">Excav. Compactas</button>
+      <button class="filter-btn" data-filter=".zts">Zero-Tail-Swing</button>
+      <button class="filter-btn" data-filter=".cat">Caterpillar</button>
+      <button class="filter-btn" data-filter=".komatsu">Komatsu</button>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid">
+
+      <!-- ★ Best Pick #1: Kubota KX155-5 -->
+      <div class="catalog-item excavator">
+        <div class="machine-card border-green">
+          <div class="card-img">
+            <img src="images/kubota-kx155-5.jpg" alt="Kubota KX155-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-pick green">⭐ Mejor Opción #1</span>
+            <span class="card-badge" style="background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)">+41% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Kubota · Exc. Compacta</div>
+            <div class="card-model">KX155-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">5.5 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">1,580 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$14,500 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val accent">~$33,900 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ★ Best Pick #2: Komatsu PC45MR-5 -->
+      <div class="catalog-item excavator zts komatsu">
+        <div class="machine-card border-red">
+          <div class="card-img">
+            <img src="images/komatsu-pc45mr-5.jpg" alt="Komatsu PC45MR-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-pick red">⭐ Mejor Opción #2</span>
+            <span class="card-badge">+38% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Komatsu · Giro Cero ZTS</div>
+            <div class="card-model">PC45MR-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">4.5 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">2,100 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$13,800 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val accent-red">~$31,500 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat 305E2 CR -->
+      <div class="catalog-item excavator cat">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/cat-305e2-cr.jpg" alt="Caterpillar 305E2 CR"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge">+34% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Caterpillar · Radio Compacto</div>
+            <div class="card-model">305E2 CR</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">5.0 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">2,800 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$16,200 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val text-primary">~$33,500 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Komatsu PC35MR-5 -->
+      <div class="catalog-item excavator zts komatsu">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/komatsu-pc35mr-5.jpg" alt="Komatsu PC35MR-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+36% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Komatsu · Giro Cero ZTS</div>
+            <div class="card-model">PC35MR-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">3.5 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">2,450 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$13,000 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val text-primary">~$28,500 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kubota KX080-4 -->
+      <div class="catalog-item excavator">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/kubota-kx080-4.jpg" alt="Kubota KX080-4"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+39% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Kubota · Exc. Compacta</div>
+            <div class="card-model">KX080-4</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">8.0 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">1,890 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$20,000 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val text-primary">~$41,800 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat 303E CR -->
+      <div class="catalog-item excavator zts cat">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/cat-303e-cr.jpg" alt="Cat 303E CR"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+35% MB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Caterpillar · Radio Compacto ZTS</div>
+            <div class="card-model">303E CR</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Peso</span><span class="card-spec-val">3.1 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Horas</span><span class="card-spec-val">2,200 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Precio Subasta</span><span class="card-spec-val">~$13,500 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Reventa Objetivo</span><span class="card-spec-val text-primary">~$28,900 USD</span></div>
+            <button class="card-cta">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /catalogGrid -->
+
+    <div class="text-center" style="margin-top:44px">
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:18px">Precios estimados. Usa la calculadora para un desglose exacto con proyección de margen.</p>
+      <a href="dashboard.html" class="btn-primary" style="display:inline-flex">
+        <span class="material-symbols-outlined" style="font-size:1rem">calculate</span>
+        Abrir Calculadora de Costo Aterrizado
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATRIZ ════════════════════════════════════════════ -->
+<section class="section" id="matriz">
+  <div class="container">
+    <div class="matrix-header">
+      <div>
+        <div class="section-label">Módulo de Inteligencia 01</div>
+        <h2>Guía de Compra:<br/>Qué Adquirir y Qué Evitar</h2>
+        <p style="color:var(--muted);margin-top:14px;font-size:.9rem;line-height:1.65">Nuestro filtro de abastecimiento se basa en datos de subasta de más de 2,000 unidades vendidas en México.</p>
+      </div>
+      <div class="matrix-kpi">
+        <div class="kpi-box">
+          <div class="kpi-val">32–41%</div>
+          <div class="kpi-lbl">Margen Bruto</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" style="color:var(--primary);font-size:1.8rem">3.5–5.5T</div>
+          <div class="kpi-lbl">Clase Objetivo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix-tabs">
+      <button class="mtab active-buy" id="tab-buy" onclick="switchTab('buy')">✅ Mejores Compras</button>
+      <button class="mtab" id="tab-risk" onclick="switchTab('risk')">⚠️ Riesgo / Evitar</button>
+    </div>
+
+    <!-- BUY panel -->
+    <div class="mpanel active" id="panel-buy">
+      <div class="buy-grid">
+        <div class="buy-card green">
+          <span class="pick-badge green">⭐ Mejor Opción #1</span>
+          <div class="buy-card-brand">Kubota</div>
+          <div class="buy-card-model">KX155-5 — 5.5T Exc. Compacta</div>
+          <div class="buy-card-margin green">+41% MB</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2019–2023</span>
+            <span class="buy-chip">&lt;3,500 hrs</span>
+            <span class="buy-chip">Grado 3.5+</span>
+            <span class="buy-chip">USS Yokohama</span>
+          </div>
+          <div class="buy-card-body">Kubota es la marca #1 de confianza en equipos compactos en México. Reventa en menos de 30 días. Subasta ~$14,500 → reventa objetivo ~$33,900.</div>
+          <div class="signal-row">
+            <span class="signal green">Reventa &lt;30 días</span>
+            <span class="signal green">Marca #1 en MX</span>
+            <span class="signal green">41% margen bruto</span>
+          </div>
+        </div>
+        <div class="buy-card red">
+          <span class="pick-badge red">⭐ Mejor Opción #2</span>
+          <div class="buy-card-brand">Komatsu</div>
+          <div class="buy-card-model">PC45MR-5 — 4.5T Giro Cero</div>
+          <div class="buy-card-margin red">+38% MB</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2023</span>
+            <span class="buy-chip">ZTS / Grado 3.5+</span>
+            <span class="buy-chip">JAA Kanagawa</span>
+          </div>
+          <div class="buy-card-body">Diseño ZTS con prima 15–20% en CDMX y Puebla. Komatsu tiene fuerte red de distribuidores en México. Subasta ~$13,800 → reventa objetivo ~$31,500.</div>
+          <div class="signal-row">
+            <span class="signal red">Prima ZTS urbana</span>
+            <span class="signal red">Red distribuidores</span>
+            <span class="signal red">38% margen bruto</span>
+          </div>
+        </div>
+        <div class="buy-card">
+          <div class="buy-card-brand">Caterpillar</div>
+          <div class="buy-card-model">305E2 CR — 5.0T Radio Compacto</div>
+          <div class="buy-card-margin blue">+34% MB</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2022</span>
+            <span class="buy-chip">&lt;4,000 hrs</span>
+            <span class="buy-chip">Grado 3.5+</span>
+          </div>
+          <div class="buy-card-body">Cat genera fuerte confianza en el sector industrial mexicano. Precio subasta ~$16,200 → reventa objetivo ~$33,500.</div>
+        </div>
+        <div class="buy-card">
+          <div class="buy-card-brand">Komatsu</div>
+          <div class="buy-card-model">PC35MR-5 — 3.5T Giro Cero</div>
+          <div class="buy-card-margin blue">+36% MB</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2022</span>
+            <span class="buy-chip">ZTS / Grado 3.5+</span>
+          </div>
+          <div class="buy-card-body">Modelo ZTS de entrada con precios competitivos (~$13,000). Fuerte demanda en zanjeo telecom y drenaje municipal. Reventa ~$28,500.</div>
+        </div>
+      </div>
+      <div class="sweet-spot">
+        <div class="sweet-spot-inner">
+          <span class="material-symbols-outlined fill text-secondary" style="font-size:1.8rem;flex-shrink:0;margin-top:2px">target</span>
+          <div>
+            <h5 style="margin-bottom:8px">El Punto Óptimo</h5>
+            <p class="sweet-spot-text">Unidades entre <strong>2–6 años</strong> con <strong>menos de 3,500 horas</strong> en la clase <strong>3.5T–5.5T</strong> producen la mejor relación costo en tierra a reventa. Precio martillo <span class="accent">$13,000–$20,000</span> desde Yokohama genera <span class="accent">32%–41% de margen bruto</span>. Evita más de 5,000 horas o Grado inferior a 3.5.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISK panel -->
+    <div class="mpanel" id="panel-risk">
+      <div class="risk-grid">
+        <div class="risk-card error">
+          <div class="risk-cat error">Riesgo por Antigüedad</div>
+          <h5>Unidades Pre-2015 (Todos los Tipos)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Estándares de emisiones obsoletos — falla NOM</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Escasez de refacciones encarece mantenimiento</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Tiempo de reventa aumenta de 30 a 90+ días</li>
+          </ul>
+          <div class="risk-verdict error">❌ Evitar — salvo comprador de nicho confirmado</div>
+        </div>
+        <div class="risk-card error">
+          <div class="risk-cat error">Riesgo por Horas</div>
+          <h5>Unidades de Muchas Horas (&gt;5,000 hrs)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Desgaste de tren de rodaje destruye confianza</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Reparaciones hidráulicas y de motor probables</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Grado 2 o inferior — complicaciones de seguros</li>
+          </ul>
+          <div class="risk-verdict error">❌ Evitar — Grado 3.5 mínimo absoluto</div>
+        </div>
+        <div class="risk-card warn">
+          <div class="risk-cat warn">Riesgo de Mercado</div>
+          <h5>Excavadoras Grandes (&gt;10 t)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>Contenedor 20-ft no aplica — 40-ft suma ~$1,200</li>
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>Permisos sobredimensionamiento en rutas interiores</li>
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>Mercado dominado por distribuidores Cat locales</li>
+          </ul>
+          <div class="risk-verdict warn">⚠️ No es nuestro enfoque — logística especializada</div>
+        </div>
+        <div class="risk-card error">
+          <div class="risk-cat error">Riesgo Estructural</div>
+          <h5>Unidades con Historial de Accidentes</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Grado japonés "R" (reparado) — estrés oculto en chasis</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Reparaciones de pluma o brazo anulan certificaciones</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Integridad hidráulica comprometida</li>
+          </ul>
+          <div class="risk-verdict error">❌ Evitar estrictamente — solo Grado 3.5+ historial limpio</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIPELINE ═══════════════════════════════════════════ -->
+<section class="section pipeline-bg" id="logistica">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:64px">
+      <div class="section-label" style="justify-content:center">Estructura de Costos 02</div>
+      <h2>Pipeline Yokohama → Destino:<br/><span class="text-primary">Anatomía del Costo Total</span></h2>
+    </div>
+    <div class="pipeline-steps">
+      <div class="pipe-step">
+        <div class="pipe-num">01</div>
+        <h5>Subasta (FOB)</h5>
+        <p>Costo de martillo en Japón + comisiones de casa de subasta y preparación.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">02</div>
+        <h5>Flete Marítimo</h5>
+        <p>Ruta transpacífica Yokohama → Manzanillo. ~$3,800 por contenedor 20-ft.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">03</div>
+        <h5>Gastos Aduanales</h5>
+        <p>IGI (5%), IVA (16%), DTA, prevalidación y honorarios de agente aduanal.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">04</div>
+        <h5>Maniobras</h5>
+        <p>Desconsolidación, almacenaje portuario y carga en plataforma terrestre.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num accent">05</div>
+        <h5 class="accent">Costo Aterrizado</h5>
+        <p>Precio final llave en mano en tus instalaciones listo para operar.</p>
+      </div>
+    </div>
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="security-card-icon-wrap"><span class="material-symbols-outlined fill">local_shipping</span></div>
+        <h3>Standard Logistics</h3>
+        <ul class="security-list">
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>Monitoreo GPS 24/7 en tiempo real</li>
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>Seguro de carga básico contra daños</li>
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>Operador certificado con R-Control</li>
+        </ul>
+        <div class="security-price">$1,200 – $1,800 USD</div>
+        <div class="security-price-lbl">Estimado por contenedor (Región Centro)</div>
+      </div>
+      <div class="security-card premium">
+        <span class="premium-badge">Premium Security</span>
+        <div class="security-card-icon-wrap"><span class="material-symbols-outlined fill">shield</span></div>
+        <h3>Armored &amp; Escort</h3>
+        <ul class="security-list">
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Escolta armada dedicada (1 patrulla)</li>
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Ruta Dinámica Anti-Riesgo</li>
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Seguro de cobertura amplia (Full Theft)</li>
+        </ul>
+        <div class="security-price">$2,200 + seguro 1.2%</div>
+        <div class="security-price-lbl">Recomendado para carga de alto valor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIOS ════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-low)">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:52px">
+      <div class="section-label" style="justify-content:center">Resultados Reales</div>
+      <h2>Lo Que Dicen Nuestros Clientes</h2>
+    </div>
+    <div class="grid-3">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Importamos tres excavadoras Kubota para nuestra constructora en Querétaro. De la subasta a la entrega tomó 52 días, y los márgenes fueron exactamente como se proyectó."</p>
+        <div class="testi-source">Constructora Allende · Querétaro</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"La escolta armada fue clave para el corredor CDMX–Puebla. Sin incidentes. El seguro de cargo y la comunicación en tiempo real nos dieron total tranquilidad."</p>
+        <div class="testi-source">Operadora Volcán · CDMX</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Segundo contenedor importado. La calculadora de costo aterrizado es exacta al centavo — sin sorpresas en aduana. Recomendable al 100%."</p>
+        <div class="testi-source">Renta Maquinaria QRoo · Q. Roo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-glow-1"></div>
+      <div class="cta-glow-2"></div>
+      <div class="section-label" style="justify-content:center;margin-bottom:18px">Primera Operación desde Japón</div>
+      <h2>¿Listo para importar directamente?</h2>
+      <p>Nuestro equipo te envía una corrida financiera completa con proyección de margen en menos de 24 horas.</p>
+      <div class="cta-btns">
+        <a href="#contacto" class="btn-primary">Contactar a un Asesor</a>
+        <a href="dashboard.html" class="btn-outline">Abrir Calculadora</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACTO ══════════════════════════════════════════ -->
+<section class="section contact-bg" id="contacto">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:52px">
+      <div class="section-label" style="justify-content:center">Contáctanos</div>
+      <h2>Inicia tu Importación</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:480px;margin:14px auto 0;line-height:1.7">¿Tienes una máquina específica en mente? Mándanos un mensaje y respondemos en un día hábil.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">location_on</span></div>
+          <div><div class="contact-info-title">Oficina</div><div class="contact-info-val">Av. Insurgentes Sur 123, Col. Del Valle<br/>Ciudad de México, CDMX 03100</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">phone</span></div>
+          <div><div class="contact-info-title">Teléfono</div><div class="contact-info-val">+52 (55) 0000-0000</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">mail</span></div>
+          <div><div class="contact-info-title">Correo</div><div class="contact-info-val">contacto@japoncompacto.mx</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">schedule</span></div>
+          <div><div class="contact-info-title">Tiempo de Respuesta</div><div class="contact-info-val">Dentro de 1 día hábil<br/>Lun–Vie, 9:00–18:00 CST</div></div>
+        </div>
+      </div>
+      <div class="form-box">
+        <form id="contactFormES" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input id="cfe_name" name="from_name" type="text" class="form-input" placeholder="Nombre completo" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Empresa</label>
+              <input id="cfe_company" name="company" type="text" class="form-input" placeholder="Nombre de la empresa"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Correo Electrónico</label>
+              <input id="cfe_email" name="reply_to" type="email" class="form-input" placeholder="tu@empresa.com" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Destino</label>
+              <select id="cfe_dest" name="destination" class="form-input">
+                <option value="">Seleccionar destino...</option>
+                <option>Querétaro</option><option>Puebla</option>
+                <option>Ciudad de México</option><option>Quintana Roo</option><option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Maquinaria de Interés</label>
+              <input id="cfe_machine" name="machine" type="text" class="form-input" placeholder="Ej. Kubota KX155-5, Komatsu PC45MR-5..."/>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Mensaje</label>
+              <textarea id="cfe_message" name="message" class="form-input" placeholder="Cuéntanos tus necesidades — presupuesto, plazo, caso de uso..."></textarea>
+            </div>
+          </div>
+          <button class="form-submit" id="cfe_submit" type="submit">
+            <span class="material-symbols-outlined" style="font-size:1rem">send</span>
+            Enviar Mensaje
+          </button>
+          <div id="cfe_feedback" class="form-feedback"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="logo-mark">JC</div>
+          <span class="footer-logo-text">Japón<span>Compacto</span></span>
+        </div>
+        <p class="footer-desc">Importación directa de maquinaria compacta desde Japón a México. Sin intermediarios. Márgenes reales.</p>
+      </div>
+      <div>
+        <span class="footer-heading">Plataforma</span>
+        <a href="#top" class="footer-link">Inicio</a>
+        <a href="#maquinas" class="footer-link">Inventario</a>
+        <a href="#matriz" class="footer-link">Guía de Compra</a>
+        <a href="#logistica" class="footer-link">Logística</a>
+        <a href="#contacto" class="footer-link">Contacto</a>
+        <a href="dashboard.html" class="footer-link">Dashboard</a>
+      </div>
+      <div>
+        <span class="footer-heading">Idioma</span>
+        <a href="index.html" class="footer-link" style="color:var(--secondary);font-weight:700">Español</a>
+        <a href="index-en.html" class="footer-link">English</a>
+      </div>
+      <div>
+        <span class="footer-heading">Sede</span>
+        <p class="footer-address">Yokohama Port Terminal<br/>Manzanillo Industrial Zone, MX<br/>Ciudad de México, CDMX</p>
+        <p style="margin-top:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Plataforma interna — No distribución pública</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 JapónCompacto. Importación Industrial de Precisión.</div>
+  </div>
+</footer>
+
+<!-- ═══ FAB ════════════════════════════════════════════════ -->
+<a href="#contacto" class="fab" title="Contactar">
+  <span class="fab-label">Contactar</span>
+  <span class="material-symbols-outlined fill">chat</span>
+</a>
+
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script>
+$(function() {
+  var $grid = $('#catalogGrid').isotope({ itemSelector:'.catalog-item', layoutMode:'fitRows' });
+  $('#catalogFilters .filter-btn').on('click', function() {
+    $('#catalogFilters .filter-btn').removeClass('active');
+    $(this).addClass('active');
+    $grid.isotope({ filter: $(this).data('filter') });
+  });
+  // Smooth scroll
+  $('a[href^="#"]').on('click', function(e) {
+    var t = $(this.getAttribute('href'));
+    if (t.length) { e.preventDefault(); $('html,body').animate({ scrollTop: t.offset().top - 68 }, 480); }
+  });
+  // Nav active on scroll
+  $(window).on('scroll', function() {
+    var pos = $(this).scrollTop() + 120;
+    $('section[id], header[id]').each(function() {
+      if (pos >= $(this).offset().top && pos < $(this).offset().top + $(this).outerHeight()) {
+        $('.nav-link').removeClass('active');
+        $('.nav-link[href="#'+this.id+'"]').addClass('active');
+      }
+    });
+  });
+});
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+function closeMob() { document.getElementById('mobileNav').classList.remove('open'); }
+
+// Matrix tabs
+function switchTab(tab) {
+  document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active-buy','active-risk'));
+  document.querySelectorAll('.mpanel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add(tab==='buy'?'active-buy':'active-risk');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// ── Replace the three placeholders after EmailJS setup at emailjs.com ──
+(function(){ emailjs.init({ publicKey:'FiF6Jn0DM8hJ2QflI' }); })();
+
+document.getElementById('contactFormES').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn=document.getElementById('cfe_submit'), fb=document.getElementById('cfe_feedback');
+  var name=document.getElementById('cfe_name').value.trim();
+  var email=document.getElementById('cfe_email').value.trim();
+  if (!name||!email) {
+    fb.style.display='block'; fb.className='form-feedback err';
+    fb.textContent='Por favor completa tu nombre y correo antes de enviar.'; return;
+  }
+  btn.disabled=true;
+  btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem;animation:spin 1s linear infinite">progress_activity</span> Enviando...';
+  fb.style.display='none';
+  emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
+    from_name:name, company:document.getElementById('cfe_company').value.trim()||'—',
+    reply_to:email, destination:document.getElementById('cfe_dest').value||'—',
+    machine:document.getElementById('cfe_machine').value.trim()||'—',
+    message:document.getElementById('cfe_message').value.trim()||'—'
+  }).then(function(){
+    fb.style.display='block'; fb.className='form-feedback ok';
+    fb.textContent='✓ Mensaje enviado — te respondemos en menos de un día hábil.';
+    btn.innerHTML='<span class="material-symbols-outlined fill" style="font-size:1rem">check_circle</span> Enviado';
+    document.getElementById('contactFormES').reset();
+    setTimeout(function(){
+      btn.disabled=false;
+      btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem">send</span> Enviar Mensaje';
+    },4000);
+  },function(){
+    fb.style.display='block'; fb.className='form-feedback err';
+    fb.textContent='✗ Error al enviar. Escríbenos directamente a contacto@japoncompacto.mx';
+    btn.disabled=false;
+    btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem">send</span> Enviar Mensaje';
+  });
+});
+</script>
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</body>
+</html>

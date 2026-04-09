@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Japón Compacto — Direct Import of Compact Machinery from Japan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — Industrial Intelligence System
+   ═══════════════════════════════════════════════════════ */
+:root {
+  --bg:          #10141a;
+  --bg-low:      #181c22;
+  --bg-card:     #1c2026;
+  --bg-high:     #262a31;
+  --bg-highest:  #31353c;
+  --bg-lowest:   #0a0e14;
+  --bg-bright:   #353940;
+  --bg-navy:     #0d1b2a;
+  --primary:     #bac8dc;
+  --secondary:   #ffb3b1;
+  --cta:         #ad0224;
+  --on-surface:  #dfe2eb;
+  --muted:       #c4c6cc;
+  --outline:     #44474c;
+  --green:       #4ade80;
+  --error:       #ffb4ab;
+  --error-bg:    #93000a;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font); background: var(--bg); color: var(--on-surface); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; object-fit: cover; }
+button { font-family: var(--font); cursor: pointer; border: none; background: none; }
+ul { list-style: none; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align: middle; line-height: 1; }
+.fill { font-variation-settings: 'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-5 { gap: 20px; }
+.gap-6 { gap: 24px; }
+.gap-8 { gap: 32px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.w-full { width: 100%; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+.hidden { display: none !important; }
+.label { font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--secondary); }
+.overline { font-size: .65rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.section-label { font-size: .62rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--secondary); display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--secondary); }
+h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.0; letter-spacing: -.03em; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.05; letter-spacing: -.025em; }
+h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+h4 { font-size: 1.1rem; font-weight: 800; letter-spacing: -.01em; }
+h5 { font-size: .95rem; font-weight: 800; }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-muted { color: var(--muted); }
+.text-green { color: var(--green); }
+.text-error { color: var(--error); }
+.small-caps { font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.section { padding: 96px 0; }
+.section-sm { padding: 56px 0; }
+
+/* NAVBAR */
+.navbar { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(16,20,26,.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(68,71,76,.3); height: 68px; display: flex; align-items: center; padding: 0 32px; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: .95rem; letter-spacing: -.01em; color: var(--primary); }
+.logo-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--cta); display: flex; align-items: center; justify-content: center; font-size: .82rem; font-weight: 900; color: #fff; letter-spacing: -.04em; }
+.logo span { color: var(--secondary); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-link { font-size: .67rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--primary); padding: 4px 0; border-bottom: 2px solid transparent; transition: all .2s; }
+.nav-link:hover, .nav-link.active { color: var(--secondary); border-bottom-color: var(--secondary); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.btn-dashboard { display: flex; align-items: center; gap: 6px; background: var(--bg-highest); color: var(--primary); font-size: .67rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 16px; border-radius: 8px; transition: background .2s; }
+.btn-dashboard:hover { background: var(--bg-bright); }
+.lang-toggle { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.lang-toggle:hover { color: var(--secondary); }
+.hamburger { display: none; color: var(--primary); padding: 6px; }
+.mobile-nav { display: none; position: fixed; top: 68px; left: 0; width: 100%; background: var(--bg-low); border-bottom: 1px solid rgba(68,71,76,.3); padding: 20px 24px; flex-direction: column; gap: 4px; z-index: 99; }
+.mobile-nav a { display: block; padding: 12px 0; font-size: .82rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); border-bottom: 1px solid rgba(68,71,76,.2); }
+.mobile-nav a:last-child { border-bottom: none; color: var(--secondary); }
+.mobile-nav.open { display: flex; }
+
+/* HERO */
+.hero { min-height: 93vh; display: flex; align-items: center; padding: 100px 0 60px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 20% 40%, rgba(13,27,42,.8) 0%, var(--bg) 70%); }
+.hero-grid { position: absolute; inset: 0; opacity: .04; background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px); background-size: 64px 64px; }
+.hero-glow-1 { position: absolute; top: 30%; left: 20%; width: 500px; height: 500px; background: rgba(173,2,36,.07); border-radius: 50%; filter: blur(100px); }
+.hero-glow-2 { position: absolute; bottom: 0; right: 0; width: 400px; height: 400px; background: rgba(13,27,42,.5); border-radius: 50%; filter: blur(80px); }
+.hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: .62rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--secondary); margin-bottom: 22px; }
+.hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--secondary); display: block; }
+.hero h1 span { color: var(--secondary); }
+.hero h1 em { color: var(--primary); font-style: normal; }
+.hero-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 500px; margin: 20px 0 32px; }
+.hero-sub strong { color: var(--secondary); font-weight: 700; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 44px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--cta); color: #fff; font-weight: 700; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 10px; transition: filter .2s; animation: glow-pulse 3s ease-in-out infinite; }
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--outline); color: var(--primary); font-weight: 700; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; padding: 14px 28px; border-radius: 10px; transition: background .2s; }
+.btn-outline:hover { background: var(--bg-highest); }
+@keyframes glow-pulse { 0%,100% { box-shadow: 0 0 15px rgba(173,2,36,.3); } 50% { box-shadow: 0 0 30px rgba(173,2,36,.6); } }
+.hero-stats { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+.hero-stat-val { font-size: 2.1rem; font-weight: 900; letter-spacing: -.03em; color: #fff; line-height: 1; }
+.hero-stat-val span { color: var(--secondary); }
+.hero-stat-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.hero-divider { width: 1px; height: 48px; background: var(--outline); opacity: .4; }
+.hero-card-panel { background: var(--bg-card); border-radius: 20px; padding: 4px; border: 1px solid rgba(68,71,76,.2); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.hero-card-inner { background: var(--bg-low); border-radius: 16px; padding: 24px; }
+.hero-feed-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.feed-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.unit-card { background: var(--bg-highest); border-radius: 12px; padding: 18px; margin-bottom: 12px; border-left: 2px solid transparent; transition: background .2s; }
+.unit-card:last-child { margin-bottom: 0; }
+.unit-card.green { border-left-color: var(--green); }
+.unit-card.red { border-left-color: var(--secondary); }
+.unit-name { font-weight: 800; font-size: 1rem; letter-spacing: -.01em; }
+.unit-meta { font-size: .7rem; color: var(--muted); margin-top: 2px; }
+.unit-margin { font-size: 1.6rem; font-weight: 900; line-height: 1; }
+.unit-margin.green { color: var(--green); }
+.unit-margin.red { color: var(--secondary); }
+.unit-margin-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip { background: var(--bg-card); color: var(--muted); font-size: .58rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.hero-bottom-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(68,71,76,.25); display: flex; align-items: center; gap: 6px; font-size: .68rem; color: var(--muted); }
+
+/* TRUST BAR */
+.trust-bar { background: var(--bg-low); border-top: 1px solid rgba(68,71,76,.2); border-bottom: 1px solid rgba(68,71,76,.2); padding: 24px 0; }
+.trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.trust-icon { color: var(--secondary); font-size: 1.4rem; }
+.trust-name { font-size: .67rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
+.trust-desc { font-size: .63rem; color: var(--muted); }
+
+/* SERVICE CARDS */
+.service-card { background: var(--bg-card); border-radius: 18px; padding: 32px; border: 1px solid rgba(68,71,76,.15); transition: background .2s; }
+.service-card:hover { background: var(--bg-high); }
+.service-icon-wrap { width: 52px; height: 52px; border-radius: 12px; background: rgba(173,2,36,.12); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: background .2s; }
+.service-card:hover .service-icon-wrap { background: rgba(173,2,36,.25); }
+.service-icon-wrap .material-symbols-outlined { color: var(--secondary); font-size: 1.4rem; }
+.service-num { font-size: .6rem; font-weight: 900; letter-spacing: .2em; color: var(--secondary); margin-bottom: 10px; }
+.service-card h3 { font-size: 1.05rem; margin-bottom: 12px; }
+.service-card p { font-size: .85rem; color: var(--muted); line-height: 1.65; }
+
+/* CATALOG */
+.catalog-bg { background: var(--bg-low); }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.filter-btn { font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 9px 20px; border-radius: 100px; border: none; background: var(--bg-highest); color: var(--muted); transition: all .2s; cursor: pointer; }
+.filter-btn:hover { background: var(--bg-bright); color: var(--primary); }
+.filter-btn.active { background: var(--cta); color: #fff; }
+.catalog-grid { display: flex; flex-wrap: wrap; }
+.catalog-item { padding: 10px; width: 33.333%; }
+.machine-card { background: var(--bg-card); border-radius: 18px; overflow: hidden; transition: all .4s; height: 100%; }
+.machine-card:hover { box-shadow: 0 20px 50px rgba(0,0,0,.45); transform: translateY(-3px); }
+.card-img { height: 210px; position: relative; overflow: hidden; background: var(--bg-highest); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.85) saturate(.9); transition: transform .6s, filter .4s; }
+.machine-card:hover .card-img img { transform: scale(1.06); filter: brightness(.95) saturate(1.1); }
+.card-img-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,32,38,.85) 0%, transparent 60%); }
+.card-badge { position: absolute; top: 12px; right: 12px; background: var(--cta); color: #fff; font-size: .65rem; font-weight: 900; letter-spacing: .06em; padding: 4px 12px; border-radius: 100px; }
+.card-pick { position: absolute; top: 12px; left: 12px; font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.card-pick.green { background: rgba(74,222,128,.15); color: var(--green); border: 1px solid rgba(74,222,128,.35); }
+.card-pick.red { background: rgba(173,2,36,.2); color: var(--secondary); border: 1px solid rgba(255,179,177,.25); }
+.card-body { padding: 20px; }
+.card-brand { font-size: .57rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.card-model { font-size: 1.05rem; font-weight: 900; letter-spacing: -.01em; text-transform: uppercase; margin-bottom: 16px; }
+.card-spec-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; }
+.card-spec-lbl { font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.card-spec-val { font-size: .82rem; font-weight: 600; }
+.card-spec-val.accent { color: var(--green); font-weight: 800; }
+.card-spec-val.accent-red { color: var(--secondary); font-weight: 800; }
+.card-cta { width: 100%; margin-top: 16px; padding: 11px; border: 1px solid rgba(68,71,76,.5); border-radius: 8px; font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); transition: all .2s; cursor: pointer; background: none; }
+.card-cta:hover { background: var(--cta); color: #fff; border-color: var(--cta); }
+.machine-card.border-green { border-left: 2px solid var(--green); }
+.machine-card.border-red { border-left: 2px solid var(--secondary); }
+
+/* MATRIX */
+.matrix-header { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; margin-bottom: 44px; }
+.matrix-kpi { display: flex; gap: 16px; align-self: end; }
+.kpi-box { background: var(--bg-card); border-radius: 14px; padding: 20px 24px; flex: 1; text-align: center; border: 1px solid rgba(68,71,76,.15); }
+.kpi-val { font-size: 2.5rem; font-weight: 900; color: var(--secondary); line-height: 1; }
+.kpi-lbl { font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+.matrix-tabs { display: flex; border-bottom: 1px solid rgba(68,71,76,.3); margin-bottom: 28px; }
+.mtab { padding: 14px 28px; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .2s; background: none; border-top: none; border-left: none; border-right: none; }
+.mtab.active-buy { color: var(--green); border-bottom-color: var(--green); }
+.mtab.active-risk { color: var(--secondary); border-bottom-color: var(--secondary); }
+.mpanel { display: none; }
+.mpanel.active { display: block; }
+.buy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+.buy-card { background: var(--bg-card); border-radius: 16px; padding: 24px; border-left: 2px solid var(--outline); transition: background .2s; }
+.buy-card:hover { background: var(--bg-high); }
+.buy-card.green { border-left-color: var(--green); }
+.buy-card.red { border-left-color: var(--secondary); }
+.buy-card-brand { font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.buy-card-model { font-size: 1rem; font-weight: 900; letter-spacing: -.01em; margin-bottom: 2px; }
+.buy-card-margin { font-size: 1.5rem; font-weight: 900; margin: 8px 0 14px; }
+.buy-card-margin.green { color: var(--green); }
+.buy-card-margin.red { color: var(--secondary); }
+.buy-card-margin.blue { color: var(--primary); }
+.buy-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.buy-chip { background: var(--bg-highest); color: var(--muted); font-size: .57rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.buy-card-body { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+.pick-badge { display: inline-block; font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.pick-badge.green { background: rgba(74,222,128,.12); color: var(--green); border: 1px solid rgba(74,222,128,.3); }
+.pick-badge.red { background: rgba(173,2,36,.15); color: var(--secondary); border: 1px solid rgba(255,179,177,.25); }
+.signal-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.signal { font-size: .57rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.signal.green { background: rgba(74,222,128,.1); color: var(--green); }
+.signal.red { background: rgba(173,2,36,.12); color: var(--secondary); }
+.sweet-spot { background: var(--bg-card); border-radius: 16px; border-left: 2px solid var(--secondary); padding: 4px; }
+.sweet-spot-inner { background: var(--bg-low); border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+.sweet-spot-text { font-size: .84rem; color: var(--muted); line-height: 1.7; }
+.sweet-spot-text strong { color: var(--on-surface); }
+.sweet-spot-text .accent { color: var(--secondary); font-weight: 700; }
+.risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.risk-card { background: var(--bg-card); border-radius: 16px; padding: 24px; border-left: 2px solid var(--outline); }
+.risk-card.error { border-left-color: var(--error-bg); }
+.risk-card.warn { border-left-color: #92400e; }
+.risk-cat { font-size: .57rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
+.risk-cat.error { color: var(--error); }
+.risk-cat.warn { color: #facc15; }
+.risk-list { margin: 14px 0; display: flex; flex-direction: column; gap: 8px; }
+.risk-list li { display: flex; align-items: flex-start; gap: 8px; font-size: .82rem; color: var(--muted); line-height: 1.5; }
+.risk-verdict { font-size: .72rem; font-weight: 800; letter-spacing: .06em; padding: 8px 14px; border-radius: 8px; margin-top: 14px; }
+.risk-verdict.error { background: rgba(147,0,10,.15); color: var(--error); }
+.risk-verdict.warn { background: rgba(146,64,14,.15); color: #facc15; }
+
+/* PIPELINE */
+.pipeline-bg { background: var(--bg-lowest); }
+.pipeline-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-bottom: 56px; }
+.pipeline-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--outline); opacity: .4; }
+.pipe-step { padding: 0 16px; position: relative; }
+.pipe-num { width: 56px; height: 56px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--outline); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 900; letter-spacing: .1em; color: var(--muted); margin: 0 auto 20px; position: relative; z-index: 1; }
+.pipe-num.accent { background: rgba(173,2,36,.15); border-color: rgba(173,2,36,.3); color: var(--secondary); }
+.pipe-step h5 { text-align: center; margin-bottom: 8px; font-size: .82rem; }
+.pipe-step h5.accent { color: var(--secondary); }
+.pipe-step p { font-size: .75rem; color: var(--muted); text-align: center; line-height: 1.6; }
+.security-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.security-card { background: var(--bg-card); border-radius: 18px; padding: 32px; border: 1px solid rgba(68,71,76,.15); position: relative; }
+.security-card.premium { border-color: rgba(255,179,177,.2); background: rgba(173,2,36,.06); }
+.security-card-icon-wrap { width: 48px; height: 48px; border-radius: 12px; background: rgba(173,2,36,.12); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.security-card-icon-wrap .material-symbols-outlined { color: var(--secondary); font-size: 1.4rem; }
+.security-card h3 { font-size: 1.1rem; margin-bottom: 20px; }
+.security-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.security-list li { display: flex; align-items: center; gap: 10px; font-size: .84rem; color: var(--muted); }
+.security-price { font-size: 1.5rem; font-weight: 900; color: var(--secondary); }
+.security-price-lbl { font-size: .63rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.premium-badge { position: absolute; top: 20px; right: 20px; background: rgba(173,2,36,.2); color: var(--secondary); font-size: .55rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(255,179,177,.2); }
+
+/* TESTIMONIALS */
+.testi-card { background: var(--bg-card); border-radius: 18px; padding: 32px; border: 1px solid rgba(68,71,76,.15); }
+.stars { color: var(--secondary); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+.testi-card p { font-size: .9rem; color: var(--muted); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+.testi-source { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--primary); }
+
+/* CTA BANNER */
+.cta-banner { background: var(--bg-navy); border-radius: 24px; padding: 72px 60px; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(68,71,76,.2); }
+.cta-glow-1 { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: rgba(173,2,36,.08); border-radius: 50%; filter: blur(80px); pointer-events: none; }
+.cta-glow-2 { position: absolute; bottom: -80px; right: 10%; width: 300px; height: 300px; background: rgba(13,27,42,.4); border-radius: 50%; filter: blur(60px); pointer-events: none; }
+.cta-banner h2 { margin-bottom: 16px; position: relative; }
+.cta-banner p { color: var(--muted); font-size: 1rem; max-width: 500px; margin: 0 auto 36px; line-height: 1.7; position: relative; }
+.cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
+
+/* CONTACT */
+.contact-bg { background: var(--bg-low); }
+.contact-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: start; }
+.contact-info-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; }
+.contact-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(173,2,36,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon .material-symbols-outlined { color: var(--secondary); font-size: 1.1rem; }
+.contact-info-title { font-size: .58rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.contact-info-val { font-size: .9rem; color: var(--on-surface); line-height: 1.6; }
+.form-box { background: var(--bg-card); border-radius: 20px; padding: 36px; border: 1px solid rgba(68,71,76,.15); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: span 2; }
+.form-label { font-size: .6rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.form-input { background: var(--bg-high); border: 1px solid var(--outline); border-radius: 10px; padding: 12px 16px; font-family: var(--font); font-size: .9rem; color: var(--on-surface); transition: border-color .2s; }
+.form-input:focus { outline: none; border-color: var(--primary); }
+textarea.form-input { min-height: 110px; resize: vertical; }
+.form-submit { margin-top: 20px; width: 100%; padding: 14px; background: var(--cta); color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: filter .2s; }
+.form-submit:hover { filter: brightness(1.15); }
+.form-feedback { margin-top: 12px; padding: 12px 16px; border-radius: 8px; font-size: .8rem; font-weight: 600; display: none; }
+.form-feedback.ok { background: rgba(74,222,128,.1); color: var(--green); }
+.form-feedback.err { background: rgba(147,0,10,.15); color: var(--error); }
+
+/* FOOTER */
+.footer { background: var(--bg-lowest); padding: 64px 0 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-logo-text { font-weight: 800; font-size: .95rem; color: var(--primary); }
+.footer-logo-text span { color: var(--secondary); }
+.footer-desc { font-size: .82rem; color: var(--muted); line-height: 1.7; max-width: 280px; }
+.footer-heading { font-size: .6rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 16px; }
+.footer-link { display: block; font-size: .82rem; color: var(--primary); margin-bottom: 10px; transition: color .2s; }
+.footer-link:hover { color: var(--secondary); }
+.footer-address { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+.footer-bottom { padding-top: 24px; border-top: 1px solid rgba(68,71,76,.2); font-size: .68rem; color: var(--muted); letter-spacing: .08em; text-align: center; }
+
+/* FAB */
+.fab { position: fixed; bottom: 28px; right: 28px; z-index: 90; background: var(--cta); color: #fff; display: flex; align-items: center; justify-content: center; padding: 0 18px; height: 52px; border-radius: 100px; box-shadow: 0 8px 24px rgba(173,2,36,.4); transition: all .3s; overflow: hidden; max-width: 56px; }
+.fab:hover { max-width: 200px; gap: 8px; padding-left: 18px; }
+.fab-label { white-space: nowrap; overflow: hidden; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; max-width: 0; transition: max-width .3s; }
+.fab:hover .fab-label { max-width: 100px; }
+.fab .material-symbols-outlined { font-size: 1.2rem; flex-shrink: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-card-panel { display: none; }
+  .matrix-header { grid-template-columns: 1fr; gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.8rem; }
+  .nav-links, .nav-right .btn-dashboard { display: none; }
+  .hamburger { display: flex; }
+  .catalog-item { width: 50%; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .buy-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .pipeline-steps { grid-template-columns: 1fr; }
+  .pipeline-steps::before { display: none; }
+  .security-grid { grid-template-columns: 1fr; }
+  .cta-banner { padding: 40px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .trust-bar .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .catalog-item { width: 100%; }
+  h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<header class="navbar" id="mainNav">
+  <a href="#top" class="logo">
+    <div class="logo-mark">JC</div>
+    Japón<span>Compacto</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#machines" class="nav-link">Inventory</a>
+    <a href="#matrix" class="nav-link">Buy Guide</a>
+    <a href="#logistics" class="nav-link">Logistics</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <a href="consultor.html" class="btn-dashboard" style="margin-right:4px">
+      <span class="material-symbols-outlined" style="font-size:1rem">manage_search</span> Advisor
+    </a>
+    <a href="dashboard.html" class="btn-dashboard">
+      <span class="material-symbols-outlined" style="font-size:1rem">calculate</span> Dashboard
+    </a>
+    <a href="index.html" class="lang-toggle">ES</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#machines" onclick="closeMob()">Inventory</a>
+  <a href="#matrix" onclick="closeMob()">Buy Guide</a>
+  <a href="#logistics" onclick="closeMob()">Logistics</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="dashboard.html">Dashboard →</a>
+  <a href="consultor.html">Advisor →</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Japan → Mexico · Direct Route</div>
+        <h1>The B2B platform<br/>to import<br/><span>compact machinery</span><br/><em>directly from Japan</em></h1>
+        <p class="hero-sub">Compact excavators 3.5T–5.5T from Yokohama — with <strong>32%–41% gross margins</strong> after customs, freight and delivery in Mexico.</p>
+        <div class="hero-btns">
+          <a href="#machines" class="btn-primary">
+            <span class="material-symbols-outlined fill" style="font-size:1rem">inventory_2</span>
+            View Qualified Inventory
+          </a>
+          <a href="dashboard.html" class="btn-outline">
+            <span class="material-symbols-outlined" style="font-size:1rem">calculate</span>
+            Cost Calculator
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">32–<span>41</span>%</div>
+            <div class="hero-stat-lbl">Gross Margin</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div>
+            <div class="hero-stat-val" style="font-size:1.5rem">$13,000–<span>$20,000</span></div>
+            <div class="hero-stat-lbl">Hammer Price</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div>
+            <div class="hero-stat-val">45–<span>60</span></div>
+            <div class="hero-stat-lbl">Days Door to Door</div>
+          </div>
+        </div>
+      </div>
+      <!-- Hero live feed card -->
+      <div class="hero-card-panel">
+        <div class="hero-card-inner">
+          <div class="hero-feed-label">
+            <span class="label flex items-center gap-2">
+              <span class="feed-dot"></span>
+              Qualified Units — Live Feed
+            </span>
+            <span class="overline">USS Yokohama</span>
+          </div>
+          <div class="unit-card green">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="overline" style="margin-bottom:2px">⭐ Best Pick #1 · Kubota</div>
+                <div class="unit-name">KX155-5</div>
+                <div class="unit-meta">2021 · 1,580 hrs · Grade 4</div>
+              </div>
+              <div class="text-right">
+                <div class="unit-margin green">+41%</div>
+                <div class="unit-margin-lbl">Gross margin</div>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">5.5 t</span>
+              <span class="chip">~$14,500 USD</span>
+              <span class="chip">USS Yokohama</span>
+            </div>
+          </div>
+          <div class="unit-card red">
+            <div class="flex justify-between items-start">
+              <div>
+                <div class="overline" style="margin-bottom:2px">⭐ Best Pick #2 · Komatsu</div>
+                <div class="unit-name">PC45MR-5</div>
+                <div class="unit-meta">2020 · 2,100 hrs · Grade 3.5</div>
+              </div>
+              <div class="text-right">
+                <div class="unit-margin red">+38%</div>
+                <div class="unit-margin-lbl">Gross margin</div>
+              </div>
+            </div>
+            <div class="chip-row">
+              <span class="chip">4.5 t ZTS</span>
+              <span class="chip">~$13,800 USD</span>
+              <span class="chip">JAA Kanagawa</span>
+            </div>
+          </div>
+          <div class="hero-bottom-note">
+            <span class="material-symbols-outlined fill text-secondary" style="font-size:.9rem">verified_user</span>
+            All units inspected · Customs clearance included
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ══════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="grid-4">
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">anchor</span>
+        <div class="trust-name">Direct Source</div>
+        <div class="trust-desc">Japanese auction houses</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">receipt_long</span>
+        <div class="trust-name">Full Customs</div>
+        <div class="trust-desc">IGI, VAT, DTA included</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">local_shipping</span>
+        <div class="trust-name">National Delivery</div>
+        <div class="trust-desc">4 destinations in Mexico</div>
+      </div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined fill trust-icon">shield</span>
+        <div class="trust-name">Security</div>
+        <div class="trust-desc">Armed escort or insurance</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SERVICES ═══════════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <div class="section-label" style="justify-content:center">What We Do</div>
+      <h2>Full Import Services</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:560px;margin:16px auto 0;line-height:1.7">From the auction floor in Japan to your job site — we manage every step of the process.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">search</span></div>
+        <div class="service-num">01</div>
+        <h3>Direct Source from Japan</h3>
+        <p>We access live auctions at USS, AUCNET, JAA and KSAA — applying a strict Grade 3.5+ filter to identify machinery with the highest resale potential in Mexico.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">description</span></div>
+        <div class="service-num">02</div>
+        <h3>Full Customs Clearance</h3>
+        <p>We manage the entire process: IGI (5% tariff), VAT (16%), DTA, NOM compliance, customs broker and port handling at Lázaro Cárdenas or Manzanillo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-wrap"><span class="material-symbols-outlined">route</span></div>
+        <div class="service-num">03</div>
+        <h3>Inland Logistics</h3>
+        <p>We deliver to Querétaro, Puebla, CDMX and Quintana Roo — with armed escort for high-risk corridors or comprehensive cargo insurance on standard routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATALOG ═════════════════════════════════════════════ -->
+<section class="section catalog-bg" id="machines">
+  <div class="container">
+    <div class="flex justify-between items-end flex-wrap gap-6" style="margin-bottom:40px">
+      <div>
+        <div class="section-label">Current Inventory</div>
+        <h2>High-Yield Catalog</h2>
+      </div>
+      <p style="color:var(--muted);font-size:.84rem;max-width:320px;text-align:right;line-height:1.6">Projected margin based on recent auction data. Hammer price $13,000–$20,000 USD.</p>
+    </div>
+
+    <div class="filter-bar" id="catalogFilters">
+      <button class="filter-btn active" data-filter="*">All</button>
+      <button class="filter-btn" data-filter=".excavator">Compact Excav.</button>
+      <button class="filter-btn" data-filter=".zts">Zero-Tail-Swing</button>
+      <button class="filter-btn" data-filter=".cat">Caterpillar</button>
+      <button class="filter-btn" data-filter=".komatsu">Komatsu</button>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid">
+
+      <!-- Best Pick #1: Kubota KX155-5 -->
+      <div class="catalog-item excavator">
+        <div class="machine-card border-green">
+          <div class="card-img">
+            <img src="images/kubota-kx155-5.jpg" alt="Kubota KX155-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-pick green">⭐ Best Pick #1</span>
+            <span class="card-badge" style="background:rgba(74,222,128,.15);color:var(--green);border:1px solid rgba(74,222,128,.3)">+41% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Kubota · Compact Excavator</div>
+            <div class="card-model">KX155-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">5.5 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">1,580 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$14,500 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val accent">~$33,900 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Best Pick #2: Komatsu PC45MR-5 -->
+      <div class="catalog-item excavator zts komatsu">
+        <div class="machine-card border-red">
+          <div class="card-img">
+            <img src="images/komatsu-pc45mr-5.jpg" alt="Komatsu PC45MR-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-pick red">⭐ Best Pick #2</span>
+            <span class="card-badge">+38% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Komatsu · Zero Tail Swing ZTS</div>
+            <div class="card-model">PC45MR-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">4.5 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">2,100 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$13,800 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val accent-red">~$31,500 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat 305E2 CR -->
+      <div class="catalog-item excavator cat">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/cat-305e2-cr.jpg" alt="Caterpillar 305E2 CR"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge">+34% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Caterpillar · Compact Radius</div>
+            <div class="card-model">305E2 CR</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">5.0 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">2,800 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$16,200 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val text-primary">~$33,500 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Komatsu PC35MR-5 -->
+      <div class="catalog-item excavator zts komatsu">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/komatsu-pc35mr-5.jpg" alt="Komatsu PC35MR-5"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+36% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Komatsu · Zero Tail Swing ZTS</div>
+            <div class="card-model">PC35MR-5</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">3.5 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">2,450 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$13,000 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val text-primary">~$28,500 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kubota KX080-4 -->
+      <div class="catalog-item excavator">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/kubota-kx080-4.jpg" alt="Kubota KX080-4"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+39% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Kubota · Compact Excavator</div>
+            <div class="card-model">KX080-4</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">8.0 t</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">1,890 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$20,000 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val text-primary">~$41,800 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat 303E CR -->
+      <div class="catalog-item excavator zts cat">
+        <div class="machine-card">
+          <div class="card-img">
+            <img src="images/cat-303e-cr.jpg" alt="Cat 303E CR"/>
+            <div class="card-img-gradient"></div>
+            <span class="card-badge" style="background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)">+35% GM</span>
+          </div>
+          <div class="card-body">
+            <div class="card-brand">Caterpillar · Compact Radius ZTS</div>
+            <div class="card-model">303E CR</div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Weight</span><span class="card-spec-val">3.1 t ZTS</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Hours</span><span class="card-spec-val">2,200 hrs</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Auction Price</span><span class="card-spec-val">~$13,500 USD</span></div>
+            <div class="card-spec-row"><span class="card-spec-lbl">Target Resale</span><span class="card-spec-val text-primary">~$28,900 USD</span></div>
+            <button class="card-cta">View Details</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /catalogGrid -->
+
+    <div class="text-center" style="margin-top:44px">
+      <p style="color:var(--muted);font-size:.85rem;margin-bottom:18px">Estimated prices. Use the calculator for an exact breakdown with margin projection.</p>
+      <a href="dashboard.html" class="btn-primary" style="display:inline-flex">
+        <span class="material-symbols-outlined" style="font-size:1rem">calculate</span>
+        Open Landed Cost Calculator
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATRIX ════════════════════════════════════════════ -->
+<section class="section" id="matrix">
+  <div class="container">
+    <div class="matrix-header">
+      <div>
+        <div class="section-label">Intelligence Module 01</div>
+        <h2>Buy Guide:<br/>What to Acquire &amp; What to Avoid</h2>
+        <p style="color:var(--muted);margin-top:14px;font-size:.9rem;line-height:1.65">Our sourcing filter is based on auction data from over 2,000 units sold in Mexico.</p>
+      </div>
+      <div class="matrix-kpi">
+        <div class="kpi-box">
+          <div class="kpi-val">32–41%</div>
+          <div class="kpi-lbl">Gross Margin</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-val" style="color:var(--primary);font-size:1.8rem">3.5–5.5T</div>
+          <div class="kpi-lbl">Target Class</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="matrix-tabs">
+      <button class="mtab active-buy" id="tab-buy" onclick="switchTab('buy')">✅ Best Buys</button>
+      <button class="mtab" id="tab-risk" onclick="switchTab('risk')">⚠️ Risk / Avoid</button>
+    </div>
+
+    <!-- BUY panel -->
+    <div class="mpanel active" id="panel-buy">
+      <div class="buy-grid">
+        <div class="buy-card green">
+          <span class="pick-badge green">⭐ Best Pick #1</span>
+          <div class="buy-card-brand">Kubota</div>
+          <div class="buy-card-model">KX155-5 — 5.5T Compact Excavator</div>
+          <div class="buy-card-margin green">+41% GM</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2019–2023</span>
+            <span class="buy-chip">&lt;3,500 hrs</span>
+            <span class="buy-chip">Grade 3.5+</span>
+            <span class="buy-chip">USS Yokohama</span>
+          </div>
+          <div class="buy-card-body">Kubota is the #1 trusted brand for compact equipment in Mexico. Resale in under 30 days. Auction ~$14,500 → target resale ~$33,900.</div>
+          <div class="signal-row">
+            <span class="signal green">Resale &lt;30 days</span>
+            <span class="signal green">Brand #1 in MX</span>
+            <span class="signal green">41% gross margin</span>
+          </div>
+        </div>
+        <div class="buy-card red">
+          <span class="pick-badge red">⭐ Best Pick #2</span>
+          <div class="buy-card-brand">Komatsu</div>
+          <div class="buy-card-model">PC45MR-5 — 4.5T Zero Tail Swing</div>
+          <div class="buy-card-margin red">+38% GM</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2023</span>
+            <span class="buy-chip">ZTS / Grade 3.5+</span>
+            <span class="buy-chip">JAA Kanagawa</span>
+          </div>
+          <div class="buy-card-body">ZTS design commands a 15–20% premium in CDMX and Puebla. Komatsu has a strong dealer network across Mexico. Auction ~$13,800 → target resale ~$31,500.</div>
+          <div class="signal-row">
+            <span class="signal red">Urban ZTS premium</span>
+            <span class="signal red">Dealer network</span>
+            <span class="signal red">38% gross margin</span>
+          </div>
+        </div>
+        <div class="buy-card">
+          <div class="buy-card-brand">Caterpillar</div>
+          <div class="buy-card-model">305E2 CR — 5.0T Compact Radius</div>
+          <div class="buy-card-margin blue">+34% GM</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2022</span>
+            <span class="buy-chip">&lt;4,000 hrs</span>
+            <span class="buy-chip">Grade 3.5+</span>
+          </div>
+          <div class="buy-card-body">Cat generates strong buyer confidence in the Mexican industrial sector. Auction price ~$16,200 → target resale ~$33,500.</div>
+        </div>
+        <div class="buy-card">
+          <div class="buy-card-brand">Komatsu</div>
+          <div class="buy-card-model">PC35MR-5 — 3.5T Zero Tail Swing</div>
+          <div class="buy-card-margin blue">+36% GM</div>
+          <div class="buy-chips">
+            <span class="buy-chip">2018–2022</span>
+            <span class="buy-chip">ZTS / Grade 3.5+</span>
+          </div>
+          <div class="buy-card-body">Entry ZTS model with competitive pricing (~$13,000). Strong demand in telecom trenching and municipal drainage. Resale ~$28,500.</div>
+        </div>
+      </div>
+      <div class="sweet-spot">
+        <div class="sweet-spot-inner">
+          <span class="material-symbols-outlined fill text-secondary" style="font-size:1.8rem;flex-shrink:0;margin-top:2px">target</span>
+          <div>
+            <h5 style="margin-bottom:8px">The Sweet Spot</h5>
+            <p class="sweet-spot-text">Units between <strong>2–6 years old</strong> with <strong>fewer than 3,500 hours</strong> in the <strong>3.5T–5.5T class</strong> produce the best landed-cost-to-resale ratio. Hammer price <span class="accent">$13,000–$20,000</span> from Yokohama generates <span class="accent">32%–41% gross margin</span>. Avoid units above 5,000 hours or below Grade 3.5.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISK panel -->
+    <div class="mpanel" id="panel-risk">
+      <div class="risk-grid">
+        <div class="risk-card error">
+          <div class="risk-cat error">Age Risk</div>
+          <h5>Pre-2015 Units (All Types)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Outdated emission standards — NOM compliance failure</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Parts scarcity drives up maintenance costs</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Resale time increases from 30 to 90+ days</li>
+          </ul>
+          <div class="risk-verdict error">❌ Avoid — unless confirmed niche buyer</div>
+        </div>
+        <div class="risk-card error">
+          <div class="risk-cat error">Hours Risk</div>
+          <h5>High-Hour Units (&gt;5,000 hrs)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Undercarriage wear destroys buyer confidence</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Hydraulic and engine repairs likely</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Grade 2 or below — insurance complications</li>
+          </ul>
+          <div class="risk-verdict error">❌ Avoid — Grade 3.5 absolute minimum</div>
+        </div>
+        <div class="risk-card warn">
+          <div class="risk-cat warn">Market Risk</div>
+          <h5>Large Excavators (&gt;10 t)</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>20-ft container does not apply — 40-ft adds ~$1,200</li>
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>Oversize permits required on inland routes</li>
+            <li><span class="material-symbols-outlined fill" style="color:#facc15">warning</span>Market dominated by local Cat dealers</li>
+          </ul>
+          <div class="risk-verdict warn">⚠️ Outside our focus — specialized logistics required</div>
+        </div>
+        <div class="risk-card error">
+          <div class="risk-cat error">Structural Risk</div>
+          <h5>Units with Accident History</h5>
+          <ul class="risk-list">
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Japanese Grade "R" (repaired) — hidden frame stress</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Boom or arm repairs void certifications</li>
+            <li><span class="material-symbols-outlined fill text-error">cancel</span>Hydraulic integrity compromised</li>
+          </ul>
+          <div class="risk-verdict error">❌ Strictly avoid — Grade 3.5+ clean history only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIPELINE ═══════════════════════════════════════════ -->
+<section class="section pipeline-bg" id="logistics">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:64px">
+      <div class="section-label" style="justify-content:center">Cost Structure 02</div>
+      <h2>Yokohama → Destination:<br/><span class="text-primary">Total Cost Anatomy</span></h2>
+    </div>
+    <div class="pipeline-steps">
+      <div class="pipe-step">
+        <div class="pipe-num">01</div>
+        <h5>Auction (FOB)</h5>
+        <p>Hammer cost in Japan + auction house commissions and preparation fees.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">02</div>
+        <h5>Ocean Freight</h5>
+        <p>Transpacific route Yokohama → Manzanillo. ~$3,800 per 20-ft container.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">03</div>
+        <h5>Customs Fees</h5>
+        <p>IGI (5%), VAT (16%), DTA, pre-validation and customs broker fees.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num">04</div>
+        <h5>Port Handling</h5>
+        <p>Deconsolidation, port storage and loading onto inland flatbed.</p>
+      </div>
+      <div class="pipe-step">
+        <div class="pipe-num accent">05</div>
+        <h5 class="accent">Landed Cost</h5>
+        <p>Final turnkey price at your facility, ready to operate.</p>
+      </div>
+    </div>
+    <div class="security-grid">
+      <div class="security-card">
+        <div class="security-card-icon-wrap"><span class="material-symbols-outlined fill">local_shipping</span></div>
+        <h3>Standard Logistics</h3>
+        <ul class="security-list">
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>24/7 real-time GPS monitoring</li>
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>Basic cargo insurance against damage</li>
+          <li><span class="material-symbols-outlined fill text-green">check_circle</span>Certified operator with R-Control</li>
+        </ul>
+        <div class="security-price">$1,200 – $1,800 USD</div>
+        <div class="security-price-lbl">Estimated per container (Central Region)</div>
+      </div>
+      <div class="security-card premium">
+        <span class="premium-badge">Premium Security</span>
+        <div class="security-card-icon-wrap"><span class="material-symbols-outlined fill">shield</span></div>
+        <h3>Armored &amp; Escort</h3>
+        <ul class="security-list">
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Dedicated armed escort (1 patrol vehicle)</li>
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Dynamic Anti-Risk Routing</li>
+          <li><span class="material-symbols-outlined fill text-secondary">verified</span>Comprehensive coverage insurance (Full Theft)</li>
+        </ul>
+        <div class="security-price">$2,200 + 1.2% insurance</div>
+        <div class="security-price-lbl">Recommended for high-value cargo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══════════════════════════════════════ -->
+<section class="section" style="background:var(--bg-low)">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:52px">
+      <div class="section-label" style="justify-content:center">Real Results</div>
+      <h2>What Our Clients Say</h2>
+    </div>
+    <div class="grid-3">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"We imported three Kubota excavators for our construction company in Querétaro. From auction to delivery it took 52 days, and the margins were exactly as projected."</p>
+        <div class="testi-source">Constructora Allende · Querétaro</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"The armed escort was key for the CDMX–Puebla corridor. No incidents. The cargo insurance and real-time communication gave us complete peace of mind."</p>
+        <div class="testi-source">Operadora Volcán · CDMX</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Second container imported. The landed cost calculator is accurate to the cent — no customs surprises. 100% recommended."</p>
+        <div class="testi-source">Renta Maquinaria QRoo · Q. Roo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-glow-1"></div>
+      <div class="cta-glow-2"></div>
+      <div class="section-label" style="justify-content:center;margin-bottom:18px">First Operation from Japan</div>
+      <h2>Ready to import directly?</h2>
+      <p>Our team sends you a complete financial model with margin projection in under 24 hours.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-primary">Contact an Advisor</a>
+        <a href="dashboard.html" class="btn-outline">Open Calculator</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ════════════════════════════════════════════ -->
+<section class="section contact-bg" id="contact">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:52px">
+      <div class="section-label" style="justify-content:center">Get in Touch</div>
+      <h2>Start Your Import</h2>
+      <p style="color:var(--muted);font-size:1rem;max-width:480px;margin:14px auto 0;line-height:1.7">Have a specific machine in mind? Send us a message and we'll respond within one business day.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">location_on</span></div>
+          <div><div class="contact-info-title">Office</div><div class="contact-info-val">Av. Insurgentes Sur 123, Col. Del Valle<br/>Ciudad de México, CDMX 03100</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">phone</span></div>
+          <div><div class="contact-info-title">Phone</div><div class="contact-info-val">+52 (55) 0000-0000</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">mail</span></div>
+          <div><div class="contact-info-title">Email</div><div class="contact-info-val">contacto@japoncompacto.mx</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><span class="material-symbols-outlined fill">schedule</span></div>
+          <div><div class="contact-info-title">Response Time</div><div class="contact-info-val">Within 1 business day<br/>Mon–Fri, 9:00–18:00 CST</div></div>
+        </div>
+      </div>
+      <div class="form-box">
+        <form id="contactFormEN" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input id="cfen_name" name="from_name" type="text" class="form-input" placeholder="Full name" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input id="cfen_company" name="company" type="text" class="form-input" placeholder="Company name"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input id="cfen_email" name="reply_to" type="email" class="form-input" placeholder="you@company.com" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Destination</label>
+              <select id="cfen_dest" name="destination" class="form-input">
+                <option value="">Select destination...</option>
+                <option>Querétaro</option><option>Puebla</option>
+                <option>Ciudad de México</option><option>Quintana Roo</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Machinery of Interest</label>
+              <input id="cfen_machine" name="machine" type="text" class="form-input" placeholder="E.g. Kubota KX155-5, Komatsu PC45MR-5..."/>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Message</label>
+              <textarea id="cfen_message" name="message" class="form-input" placeholder="Tell us your needs — budget, timeline, use case..."></textarea>
+            </div>
+          </div>
+          <button class="form-submit" id="cfen_submit" type="submit">
+            <span class="material-symbols-outlined" style="font-size:1rem">send</span>
+            Send Message
+          </button>
+          <div id="cfen_feedback" class="form-feedback"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="logo-mark">JC</div>
+          <span class="footer-logo-text">Japón<span>Compacto</span></span>
+        </div>
+        <p class="footer-desc">Direct import of compact machinery from Japan to Mexico. No intermediaries. Real margins.</p>
+      </div>
+      <div>
+        <span class="footer-heading">Platform</span>
+        <a href="#top" class="footer-link">Home</a>
+        <a href="#machines" class="footer-link">Inventory</a>
+        <a href="#matrix" class="footer-link">Buy Guide</a>
+        <a href="#logistics" class="footer-link">Logistics</a>
+        <a href="#contact" class="footer-link">Contact</a>
+        <a href="dashboard.html" class="footer-link">Dashboard</a>
+      </div>
+      <div>
+        <span class="footer-heading">Language</span>
+        <a href="index.html" class="footer-link">Español</a>
+        <a href="index-en.html" class="footer-link" style="color:var(--secondary);font-weight:700">English</a>
+      </div>
+      <div>
+        <span class="footer-heading">Locations</span>
+        <p class="footer-address">Yokohama Port Terminal<br/>Manzanillo Industrial Zone, MX<br/>Ciudad de México, CDMX</p>
+        <p style="margin-top:14px;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Internal platform — Not for public distribution</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 JapónCompacto. Precision Industrial Import.</div>
+  </div>
+</footer>
+
+<!-- ═══ FAB ════════════════════════════════════════════════ -->
+<a href="#contact" class="fab" title="Contact">
+  <span class="fab-label">Contact</span>
+  <span class="material-symbols-outlined fill">chat</span>
+</a>
+
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script>
+$(function() {
+  var $grid = $('#catalogGrid').isotope({ itemSelector:'.catalog-item', layoutMode:'fitRows' });
+  $('#catalogFilters .filter-btn').on('click', function() {
+    $('#catalogFilters .filter-btn').removeClass('active');
+    $(this).addClass('active');
+    $grid.isotope({ filter: $(this).data('filter') });
+  });
+  $('a[href^="#"]').on('click', function(e) {
+    var t = $(this.getAttribute('href'));
+    if (t.length) { e.preventDefault(); $('html,body').animate({ scrollTop: t.offset().top - 68 }, 480); }
+  });
+  $(window).on('scroll', function() {
+    var pos = $(this).scrollTop() + 120;
+    $('section[id], header[id]').each(function() {
+      if (pos >= $(this).offset().top && pos < $(this).offset().top + $(this).outerHeight()) {
+        $('.nav-link').removeClass('active');
+        $('.nav-link[href="#'+this.id+'"]').addClass('active');
+      }
+    });
+  });
+});
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+function closeMob() { document.getElementById('mobileNav').classList.remove('open'); }
+
+function switchTab(tab) {
+  document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active-buy','active-risk'));
+  document.querySelectorAll('.mpanel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add(tab==='buy'?'active-buy':'active-risk');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+</script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){ emailjs.init({ publicKey:'FiF6Jn0DM8hJ2QflI' }); })();
+
+document.getElementById('contactFormEN').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn=document.getElementById('cfen_submit'), fb=document.getElementById('cfen_feedback');
+  var name=document.getElementById('cfen_name').value.trim();
+  var email=document.getElementById('cfen_email').value.trim();
+  if (!name||!email) {
+    fb.style.display='block'; fb.className='form-feedback err';
+    fb.textContent='Please fill in your name and email before sending.'; return;
+  }
+  btn.disabled=true;
+  btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem;animation:spin 1s linear infinite">progress_activity</span> Sending...';
+  fb.style.display='none';
+  emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
+    from_name:name, company:document.getElementById('cfen_company').value.trim()||'—',
+    reply_to:email, destination:document.getElementById('cfen_dest').value||'—',
+    machine:document.getElementById('cfen_machine').value.trim()||'—',
+    message:document.getElementById('cfen_message').value.trim()||'—'
+  }).then(function(){
+    fb.style.display='block'; fb.className='form-feedback ok';
+    fb.textContent='✓ Message sent — we\'ll respond within one business day.';
+    btn.innerHTML='<span class="material-symbols-outlined fill" style="font-size:1rem">check_circle</span> Sent';
+    document.getElementById('contactFormEN').reset();
+    setTimeout(function(){
+      btn.disabled=false;
+      btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem">send</span> Send Message';
+    },4000);
+  },function(){
+    fb.style.display='block'; fb.className='form-feedback err';
+    fb.textContent='✗ Failed to send. Write to us at contacto@japoncompacto.mx';
+    btn.disabled=false;
+    btn.innerHTML='<span class="material-symbols-outlined" style="font-size:1rem">send</span> Send Message';
+  });
+});
+</script>
+<style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+</body>
+</html>

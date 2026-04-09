@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultor de Adquisición — Japón Compacto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #10141a;
+  --bg-low:      #181c22;
+  --bg-card:     #1c2026;
+  --bg-high:     #262a31;
+  --bg-highest:  #31353c;
+  --primary:     #bac8dc;
+  --secondary:   #ffb3b1;
+  --cta:         #ad0224;
+  --on-surface:  #dfe2eb;
+  --muted:       #8892a4;
+  --outline:     #3a3e46;
+  --green:       #4ade80;
+  --yellow:      #fbbf24;
+  --orange:      #fb923c;
+  --blue:        #60a5fa;
+  --red:         #f87171;
+  --font:        'Inter', sans-serif;
+  --radius:      12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--on-surface);min-height:100vh;font-size:15px}
+
+/* NAV */
+nav{background:rgba(16,20,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--outline);padding:0 28px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{width:32px;height:32px;background:var(--cta);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;letter-spacing:-.5px}
+.nav-title{font-weight:700;font-size:.95rem;color:var(--primary)}
+.nav-subtitle{font-size:.72rem;color:var(--muted);margin-left:4px}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-links a.active{color:var(--on-surface)}
+
+/* LAYOUT */
+.page{max-width:1200px;margin:0 auto;padding:32px 24px 80px}
+.page-header{margin-bottom:32px}
+.page-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cta);margin-bottom:8px}
+.page-title{font-size:1.9rem;font-weight:900;color:var(--primary);line-height:1.1;margin-bottom:8px}
+.page-desc{font-size:.88rem;color:var(--muted);max-width:620px;line-height:1.6}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* CARD */
+.card{background:var(--bg-card);border-radius:var(--radius);padding:22px 24px;border:1px solid var(--outline)}
+.card-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+
+/* RATE TICKER */
+.rate-bar{background:var(--bg-low);border:1px solid var(--outline);border-radius:var(--radius);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.rate-group{display:flex;align-items:center;gap:16px}
+.rate-item{text-align:center}
+.rate-label{font-size:.68rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.rate-value{font-size:1.15rem;font-weight:800;color:var(--primary);font-variant-numeric:tabular-nums}
+.rate-value.green{color:var(--green)}
+.rate-sep{color:var(--outline);font-size:1.2rem}
+.rate-status{display:flex;align-items:center;gap:6px;font-size:.75rem;font-weight:600}
+.rate-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.rate-dot.loading{background:var(--yellow);animation:none}
+.rate-dot.error{background:var(--red);animation:none}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* CONVERTER */
+.converter-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.conv-input-wrap{position:relative;flex:1;min-width:160px}
+.conv-input-wrap label{font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
+.conv-input{width:100%;background:var(--bg-high);border:1px solid var(--outline);border-radius:8px;padding:10px 14px 10px 40px;color:var(--on-surface);font-size:1rem;font-weight:700;font-family:var(--font);outline:none;transition:border .2s}
+.conv-input:focus{border-color:var(--primary)}
+.conv-prefix{position:absolute;left:13px;bottom:11px;font-size:.9rem;color:var(--muted);font-weight:700}
+.conv-arrow{color:var(--muted);font-size:1.1rem;margin-top:22px;flex-shrink:0}
+.conv-result{flex:1;min-width:160px}
+.conv-result label{font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
+.conv-result-val{background:var(--bg-high);border:1px solid var(--outline);border-radius:8px;padding:10px 14px;font-size:1rem;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;height:42px;display:flex;align-items:center}
+
+/* INPUT FORM */
+.form-grid{display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr 1fr;}}
+.form-field label{font-size:.68rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:5px}
+.form-input,.form-select{width:100%;background:var(--bg-high);border:1px solid var(--outline);border-radius:8px;padding:9px 12px;color:var(--on-surface);font-size:.88rem;font-family:var(--font);outline:none;transition:border .2s}
+.form-input:focus,.form-select:focus{border-color:var(--primary)}
+.form-select option{background:var(--bg-high)}
+.btn{border:none;border-radius:8px;padding:9px 18px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:opacity .2s,transform .1s;white-space:nowrap}
+.btn:hover{opacity:.88}
+.btn:active{transform:scale(.97)}
+.btn-add{background:var(--cta);color:#fff}
+.btn-clear{background:var(--bg-highest);color:var(--muted)}
+.btn-demo{background:var(--bg-highest);color:var(--primary);border:1px solid var(--outline)}
+
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.toggle{position:relative;width:36px;height:20px;cursor:pointer}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--bg-highest);border-radius:20px;transition:.3s}
+.toggle-slider::before{content:'';position:absolute;width:14px;height:14px;left:3px;top:3px;background:var(--muted);border-radius:50%;transition:.3s}
+.toggle input:checked + .toggle-slider{background:var(--green)}
+.toggle input:checked + .toggle-slider::before{transform:translateX(16px);background:#fff}
+.toggle-label{font-size:.78rem;color:var(--muted);font-weight:500}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{padding:10px 14px;text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--outline);white-space:nowrap}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+tbody td{padding:12px 14px;vertical-align:middle;font-variant-numeric:tabular-nums}
+tbody tr:last-child{border-bottom:none}
+.td-model{font-weight:700;color:var(--on-surface)}
+.td-hours{color:var(--primary)}
+.td-jpy{color:var(--muted)}
+.td-usd{font-weight:700;color:var(--on-surface)}
+.td-margin{font-weight:800}
+.td-margin.high{color:var(--green)}
+.td-margin.mid{color:var(--yellow)}
+.td-margin.low{color:var(--orange)}
+.td-actions{white-space:nowrap}
+.btn-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;padding:4px 8px;border-radius:4px;transition:color .2s}
+.btn-remove:hover{color:var(--red)}
+.empty-row td{text-align:center;color:var(--muted);padding:32px;font-size:.85rem;font-style:italic}
+
+/* STATUS BADGES */
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.badge-best{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.3)}
+.badge-recommended{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.25)}
+.badge-substitute{background:rgba(251,146,60,.1);color:var(--orange);border:1px solid rgba(251,146,60,.25)}
+.badge-available{background:rgba(186,200,220,.08);color:var(--primary);border:1px solid rgba(186,200,220,.2)}
+.badge-out{background:rgba(248,113,113,.08);color:var(--red);border:1px solid rgba(248,113,113,.2)}
+.badge-stockout{background:rgba(100,100,100,.12);color:var(--muted);border:1px solid var(--outline);text-decoration:line-through}
+
+/* RECOMMENDATION CARDS */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:700px){.rec-grid{grid-template-columns:1fr}}
+.rec-card{border-radius:var(--radius);padding:20px;border:1px solid var(--outline);position:relative;overflow:hidden}
+.rec-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.rec-card.best::before{background:var(--green)}
+.rec-card.recommended::before{background:var(--yellow)}
+.rec-card.substitute::before{background:var(--orange)}
+.rec-card.empty-rec{background:var(--bg-card);display:flex;align-items:center;justify-content:center;min-height:120px;color:var(--muted);font-size:.82rem;font-style:italic}
+.rec-card.best{background:rgba(74,222,128,.05)}
+.rec-card.recommended{background:rgba(251,191,36,.05)}
+.rec-card.substitute{background:rgba(251,146,60,.05)}
+.rec-type{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.rec-type.best{color:var(--green)}
+.rec-type.recommended{color:var(--yellow)}
+.rec-type.substitute{color:var(--orange)}
+.rec-model{font-size:1.1rem;font-weight:900;color:var(--primary);margin-bottom:4px}
+.rec-detail{font-size:.78rem;color:var(--muted);line-height:1.6}
+.rec-price{font-size:1.3rem;font-weight:900;color:var(--green);margin-top:10px}
+.rec-price-jpy{font-size:.75rem;color:var(--muted);margin-top:2px}
+.rec-margin{display:inline-block;background:rgba(74,222,128,.15);color:var(--green);border-radius:6px;padding:3px 8px;font-size:.75rem;font-weight:700;margin-top:8px}
+.rec-margin.yellow{background:rgba(251,191,36,.15);color:var(--yellow)}
+.rec-reason{font-size:.75rem;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);line-height:1.5}
+
+/* PROTOCOL PANEL */
+.protocol-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.protocol-list li{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--muted);line-height:1.5}
+.protocol-list li .icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;margin-top:1px}
+.icon-kubota{background:rgba(234,88,12,.2);color:#fb923c}
+.icon-komatsu{background:rgba(251,191,36,.15);color:var(--yellow)}
+.icon-budget{background:rgba(74,222,128,.12);color:var(--green)}
+strong.hl{color:var(--on-surface);font-weight:700}
+
+/* RANGE VISUAL */
+.range-bar{position:relative;height:8px;background:var(--bg-highest);border-radius:4px;margin:16px 0 8px;overflow:hidden}
+.range-zone{position:absolute;height:100%;border-radius:4px}
+.range-zone.total{left:0;right:0;background:rgba(186,200,220,.08)}
+.range-zone.sweet{left:28.6%;width:21.4%;background:rgba(74,222,128,.35)}
+.range-labels{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.range-zone-label{position:absolute;top:-18px;font-size:.6rem;font-weight:700;color:var(--green);text-transform:uppercase;left:28.6%;white-space:nowrap}
+
+/* TABS */
+.tabs{display:flex;gap:2px;background:var(--bg-low);border-radius:8px;padding:3px;margin-bottom:20px;width:fit-content}
+.tab{padding:7px 16px;border-radius:6px;font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;border:none;background:none;font-family:var(--font)}
+.tab.active{background:var(--bg-card);color:var(--on-surface)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* FOOTER */
+footer{text-align:center;padding:24px;color:var(--muted);font-size:.75rem;border-top:1px solid var(--outline);margin-top:40px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html">
+    <div class="nav-logo">JC</div>
+    <span class="nav-title">Japón Compacto</span>
+    <span class="nav-subtitle">· Consultor de Adquisición</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="dashboard.html">Calculadora</a>
+    <a href="consultor.html" class="active">Consultor</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-eyebrow">Inteligencia de Comprador · Subasta Japón</div>
+    <h1 class="page-title">Consultor de Adquisición de Maquinaria</h1>
+    <p class="page-desc">Filtra y clasifica unidades de subasta en tiempo real. Ingresa los lotes disponibles en Yokohama y el sistema aplica automáticamente la lógica de Mejor Opción, Recomendada y Sustituto.</p>
+  </div>
+
+  <!-- LIVE RATE BAR -->
+  <div class="rate-bar">
+    <div class="rate-group">
+      <div class="rate-item">
+        <div class="rate-label">Tasa JPY/USD</div>
+        <div class="rate-value" id="rateDisplay">—</div>
+      </div>
+      <div class="rate-sep">|</div>
+      <div class="rate-item">
+        <div class="rate-label">¥1,000,000 JPY</div>
+        <div class="rate-value green" id="rate1mDisplay">—</div>
+      </div>
+      <div class="rate-sep">|</div>
+      <div class="rate-item">
+        <div class="rate-label">Actualizado</div>
+        <div class="rate-value" id="rateTime" style="font-size:.82rem;color:var(--muted)">—</div>
+      </div>
+    </div>
+    <div class="rate-status">
+      <div class="rate-dot loading" id="rateDot"></div>
+      <span id="rateStatusText">Obteniendo tasa en vivo...</span>
+      <button class="btn btn-clear" style="padding:5px 12px;font-size:.72rem;margin-left:8px" onclick="fetchRate()">↺ Actualizar</button>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <!-- CONVERTER -->
+    <div class="card">
+      <div class="card-title">Conversor JPY → USD en Vivo</div>
+      <div class="converter-row">
+        <div class="conv-input-wrap">
+          <label>Precio en Yenes (¥)</label>
+          <span class="conv-prefix">¥</span>
+          <input type="number" class="conv-input" id="jpyInput" placeholder="1500000" min="0" step="10000" oninput="convertJpy()">
+        </div>
+        <div class="conv-arrow">→</div>
+        <div class="conv-result">
+          <label>Precio en Dólares ($)</label>
+          <div class="conv-result-val" id="usdResult">$ —</div>
+        </div>
+      </div>
+      <!-- JPY SLIDER -->
+      <div style="margin-top:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div style="font-size:.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em">Rango de Subasta · Yokohama (desliza)</div>
+          <div style="font-size:.72rem;color:var(--muted)">¥2,000,000 – ¥4,000,000 JPY</div>
+        </div>
+        <input
+          type="range"
+          id="jpySlider"
+          min="2000000"
+          max="4000000"
+          step="50000"
+          value="2700000"
+          oninput="sliderMove(this.value)"
+          style="width:100%;accent-color:var(--cta);cursor:pointer"
+        >
+        <div style="display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums">
+          <span>¥2,000,000<br><span style="color:var(--primary)">≈ $13,000</span></span>
+          <span style="text-align:center;color:var(--green)">¥2,300k–¥2,750k<br>Mejor Opción</span>
+          <span style="text-align:right">¥4,000,000<br><span style="color:var(--primary)">≈ $20,000</span></span>
+        </div>
+        <!-- Live slider readout -->
+        <div style="margin-top:14px;background:var(--bg-high);border-radius:8px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+          <div>
+            <div style="font-size:.68rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Precio Subasta</div>
+            <div style="font-size:1.3rem;font-weight:900;color:var(--primary);font-variant-numeric:tabular-nums" id="sliderJpyVal">¥2,700,000</div>
+          </div>
+          <div style="font-size:1.2rem;color:var(--outline)">→</div>
+          <div>
+            <div style="font-size:.68rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">En Dólares (USD)</div>
+            <div style="font-size:1.3rem;font-weight:900;font-variant-numeric:tabular-nums" id="sliderUsdVal">—</div>
+          </div>
+          <div>
+            <div style="font-size:.68rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Zona</div>
+            <div id="sliderZone" style="font-size:.8rem;font-weight:700">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- range visual -->
+      <div style="margin-top:16px">
+        <div style="font-size:.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;position:relative">
+          Zona de precio objetivo (USD)
+          <span class="range-zone-label">Mejor Opción</span>
+        </div>
+        <div class="range-bar">
+          <div class="range-zone total"></div>
+          <div class="range-zone sweet"></div>
+        </div>
+        <div class="range-labels">
+          <span>$13,000</span>
+          <span style="color:var(--green);font-weight:700">$15,000–$18,000</span>
+          <span>$20,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROTOCOL -->
+    <div class="card">
+      <div class="card-title">Protocolo de Sustitución (Stock-Out)</div>
+      <ul class="protocol-list">
+        <li>
+          <div class="icon icon-kubota">K</div>
+          <span>Si falta <strong class="hl">Kubota KX</strong> → activar <strong class="hl">Caterpillar 305 CR / 303E CR</strong> como sustituto inmediato.</span>
+        </li>
+        <li>
+          <div class="icon icon-komatsu">K</div>
+          <span>Si falta <strong class="hl">Komatsu PC45MR</strong> → activar <strong class="hl">Yanmar ViO45</strong> dentro del mismo rango de precio.</span>
+        </li>
+        <li>
+          <div class="icon icon-budget">$</div>
+          <span>Si el presupuesto es ajustado (&lt;$15,000) → priorizar <strong class="hl">Komatsu PC35MR-5</strong> para asegurar la compra y preservar flujo de caja.</span>
+        </li>
+      </ul>
+      <div style="margin-top:16px;background:var(--bg-high);border-radius:8px;padding:12px 14px">
+        <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Criterio de Mejor Opción</div>
+        <div style="font-size:.8rem;color:var(--primary);line-height:1.6">
+          Menor número de horas dentro del rango <strong style="color:var(--green)">$15,000–$18,000 USD</strong>, priorizando <strong style="color:var(--primary)">Kubota KX</strong> o <strong style="color:var(--primary)">Caterpillar 305/303</strong>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AUCTION INPUT -->
+  <div class="card" style="margin-bottom:20px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <div class="card-title" style="margin-bottom:0">Ingresar Lotes de Subasta</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-demo" onclick="loadDemo()">📋 Cargar Demo Yokohama</button>
+        <button class="btn btn-clear" onclick="clearAll()">✕ Limpiar Todo</button>
+      </div>
+    </div>
+    <div class="form-grid" id="inputForm">
+      <div class="form-field">
+        <label>Modelo</label>
+        <input type="text" class="form-input" id="f_model" placeholder="Ej. Kubota KX155-5" list="modelSuggestions">
+        <datalist id="modelSuggestions">
+          <option value="Kubota KX155-5">
+          <option value="Kubota KX080-4">
+          <option value="Kubota KX057-4">
+          <option value="Caterpillar 305E2 CR">
+          <option value="Caterpillar 303E CR">
+          <option value="Komatsu PC45MR-5">
+          <option value="Komatsu PC35MR-5">
+          <option value="Yanmar ViO45">
+          <option value="Yanmar ViO35">
+          <option value="Takeuchi TB250-2">
+        </datalist>
+      </div>
+      <div class="form-field">
+        <label>Precio JPY (¥)</label>
+        <input type="number" class="form-input" id="f_jpy" placeholder="1800000" min="0" step="10000">
+      </div>
+      <div class="form-field">
+        <label>Año</label>
+        <input type="number" class="form-input" id="f_year" placeholder="2020" min="2010" max="2025">
+      </div>
+      <div class="form-field">
+        <label>Horas de Uso</label>
+        <input type="number" class="form-input" id="f_hours" placeholder="1500" min="0" step="50">
+      </div>
+      <div class="form-field">
+        <label>Disponible</label>
+        <select class="form-select" id="f_avail">
+          <option value="1">✅ Disponible</option>
+          <option value="0">❌ Stock-Out</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>&nbsp;</label>
+        <button class="btn btn-add" onclick="addUnit()" style="width:100%">+ Agregar</button>
+      </div>
+    </div>
+    <div id="formError" style="display:none;margin-top:10px;font-size:.78rem;color:var(--red);font-weight:600"></div>
+  </div>
+
+  <!-- RESULTS TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('table')">📊 Tabla Comparativa</button>
+    <button class="tab" onclick="switchTab('recs')">🎯 Recomendaciones</button>
+  </div>
+
+  <!-- TABLE TAB -->
+  <div class="tab-panel active" id="tab-table">
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <div class="card-title" style="margin-bottom:0">Lotes en Análisis · <span id="unitCount" style="color:var(--primary)">0 unidades</span></div>
+        <div style="display:flex;gap:8px;align-items:center;font-size:.75rem;color:var(--muted)">
+          <span class="badge badge-best">Mejor Opción</span>
+          <span class="badge badge-recommended">Recomendada</span>
+          <span class="badge badge-substitute">Sustituto</span>
+          <span class="badge badge-available">Disponible</span>
+          <span class="badge badge-stockout">Stock-Out</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Modelo</th>
+              <th>Año</th>
+              <th>Horas</th>
+              <th>Precio JPY (¥)</th>
+              <th>Precio USD ($)</th>
+              <th>Mg. Est.</th>
+              <th>Estatus</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <tr class="empty-row"><td colspan="9">Agrega lotes de subasta para comenzar el análisis</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECS TAB -->
+  <div class="tab-panel" id="tab-recs">
+    <div class="card">
+      <div class="card-title">Recomendaciones Automatizadas</div>
+      <div class="rec-grid" id="recGrid">
+        <div class="rec-card empty-rec">Agrega lotes para ver recomendaciones</div>
+        <div class="rec-card empty-rec">El sistema clasificará automáticamente las mejores opciones</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px" id="substitutePanel" style="display:none">
+      <div class="card-title">⚡ Protocolo de Sustitución Activado</div>
+      <div id="substituteContent" style="font-size:.85rem;color:var(--muted);line-height:1.7"></div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  Japón Compacto · Consultor de Adquisición · Tasas de cambio vía open.er-api.com · Márgenes estimados basados en datos históricos de reventa en México
+</footer>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────────
+let units = [];
+let usdPerJpy = null; // e.g. 0.0067
+let idCounter = 0;
+
+// ── EXCHANGE RATE ──────────────────────────────────────────────────────────
+async function fetchRate() {
+  const dot = document.getElementById('rateDot');
+  const statusText = document.getElementById('rateStatusText');
+  dot.className = 'rate-dot loading';
+  statusText.textContent = 'Obteniendo tasa...';
+
+  try {
+    const res = await fetch('https://open.er-api.com/v6/latest/USD');
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    const jpyPerUsd = data.rates.JPY;
+    usdPerJpy = 1 / jpyPerUsd;
+
+    document.getElementById('rateDisplay').textContent = `¥${jpyPerUsd.toFixed(2)} / $1`;
+    document.getElementById('rate1mDisplay').textContent = `$${(1000000 * usdPerJpy).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0})}`;
+
+    const now = new Date();
+    document.getElementById('rateTime').textContent = now.toLocaleTimeString('es-MX', {hour:'2-digit', minute:'2-digit'});
+
+    dot.className = 'rate-dot';
+    statusText.textContent = 'Tasa en vivo · actualizada';
+
+    // Refresh table with new rate
+    renderTable();
+    renderRecs();
+    convertJpy();
+    sliderMove(document.getElementById('jpySlider').value);
+  } catch (e) {
+    // Fallback rate if API unreachable
+    usdPerJpy = 1 / 149.5;
+    document.getElementById('rateDisplay').textContent = `¥149.50 / $1 (est.)`;
+    document.getElementById('rate1mDisplay').textContent = `$${(1000000 * usdPerJpy).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0})}`;
+    document.getElementById('rateTime').textContent = 'estimado';
+    dot.className = 'rate-dot error';
+    statusText.textContent = 'Sin conexión — usando tasa estimada ¥149.50';
+    renderTable();
+    renderRecs();
+    convertJpy();
+    sliderMove(document.getElementById('jpySlider').value);
+  }
+}
+
+// ── CONVERTER ──────────────────────────────────────────────────────────────
+function convertJpy() {
+  const jpy = parseFloat(document.getElementById('jpyInput').value);
+  const el = document.getElementById('usdResult');
+  if (!jpy || isNaN(jpy) || !usdPerJpy) { el.textContent = '$ —'; return; }
+  const usd = jpy * usdPerJpy;
+  el.textContent = `$${usd.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0})}`;
+  el.style.color = usd >= 15000 && usd <= 18000 ? 'var(--green)' :
+                   usd >= 13000 && usd <= 20000 ? 'var(--yellow)' : 'var(--red)';
+}
+
+// ── CLASSIFICATION LOGIC ───────────────────────────────────────────────────
+const PRIORITY_PATTERNS = ['kubota kx', 'caterpillar 305', 'cat 305', 'caterpillar 303', 'cat 303'];
+const KOMATSU_PATTERNS  = ['komatsu', 'pc45', 'pc35'];
+const YANMAR_PATTERNS   = ['yanmar', 'vio'];
+
+function isPriority(model) { const m = model.toLowerCase(); return PRIORITY_PATTERNS.some(p => m.includes(p)); }
+function isKomatsu(model)  { const m = model.toLowerCase(); return KOMATSU_PATTERNS.some(p => m.includes(p)); }
+function isYanmar(model)   { const m = model.toLowerCase(); return YANMAR_PATTERNS.some(p => m.includes(p)); }
+function isBudget(model)   { const m = model.toLowerCase(); return m.includes('pc35') || m.includes('vio35') || m.includes('kx040') || m.includes('kx057'); }
+
+function estimateMargin(usd) {
+  // Based on historical resale data: lower auction price → higher margin
+  if (usd <= 13500) return 41;
+  if (usd <= 14500) return 39;
+  if (usd <= 15500) return 37;
+  if (usd <= 16500) return 35;
+  if (usd <= 17500) return 34;
+  if (usd <= 18000) return 33;
+  if (usd <= 19000) return 30;
+  if (usd <= 20000) return 28;
+  return 24;
+}
+
+function classifyUnits(unitList) {
+  if (!usdPerJpy) return unitList.map(u => ({...u, status:'pending', usd:0, margin:0}));
+
+  const withUsd = unitList.map(u => ({
+    ...u,
+    usd: Math.round(u.jpy * usdPerJpy),
+    margin: 0,
+    status: 'available'
+  }));
+
+  withUsd.forEach(u => { u.margin = estimateMargin(u.usd); });
+
+  // Step 1: Best Buy candidates — in $15k–$18k, priority brand, available, fewest hours
+  const bestCandidates = withUsd
+    .filter(u => u.available && u.usd >= 15000 && u.usd <= 18000 && isPriority(u.model))
+    .sort((a,b) => a.hours - b.hours);
+
+  if (bestCandidates.length > 0) {
+    bestCandidates[0].status = 'best';
+  }
+
+  // Step 2: If no best in sweet spot, widen to $13k–$20k priority brand
+  const hasBest = withUsd.some(u => u.status === 'best');
+  if (!hasBest) {
+    const wideCandidates = withUsd
+      .filter(u => u.available && u.usd >= 13000 && u.usd <= 20000 && isPriority(u.model))
+      .sort((a,b) => a.hours - b.hours);
+    if (wideCandidates.length > 0) wideCandidates[0].status = 'best';
+  }
+
+  // Step 3: Recommended — Komatsu or Yanmar near $13k (or lowest in range if no best)
+  const hasBestNow = withUsd.some(u => u.status === 'best');
+  const recCandidates = withUsd
+    .filter(u => u.available && u.status !== 'best' && u.usd >= 13000 && u.usd <= 20000)
+    .filter(u => isKomatsu(u.model) || isYanmar(u.model))
+    .sort((a,b) => a.usd - b.usd); // closer to $13k
+
+  if (recCandidates.length > 0) recCandidates[0].status = 'recommended';
+
+  // Step 4: If no recommended yet, pick lowest price available unit
+  const hasRec = withUsd.some(u => u.status === 'recommended');
+  if (!hasRec) {
+    const fallback = withUsd
+      .filter(u => u.available && u.status !== 'best' && u.usd >= 13000 && u.usd <= 20000)
+      .sort((a,b) => a.usd - b.usd);
+    if (fallback.length > 0) fallback[0].status = 'recommended';
+  }
+
+  // Step 5: Substitutes for stock-out units
+  withUsd.forEach(u => {
+    if (!u.available) {
+      u.status = 'stockout';
+      u.substituteNote = getSubstituteNote(u.model);
+    }
+  });
+
+  // Step 6: Out of range
+  withUsd.forEach(u => {
+    if (u.status === 'available' && (u.usd < 13000 || u.usd > 20000)) u.status = 'out';
+  });
+
+  return withUsd;
+}
+
+function getSubstituteNote(model) {
+  const m = model.toLowerCase();
+  if (m.includes('kubota') || m.includes('kx')) return 'Sustituto activo: Caterpillar 305 CR';
+  if (m.includes('komatsu') || m.includes('pc45')) return 'Sustituto activo: Yanmar ViO45';
+  if (m.includes('caterpillar') || m.includes('cat')) return 'Sustituto activo: Kubota KX155-5';
+  return 'Revisar mercado · buscar unidad similar';
+}
+
+// ── RENDER TABLE ───────────────────────────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  const classified = classifyUnits(units);
+  document.getElementById('unitCount').textContent = `${units.length} unidad${units.length !== 1 ? 'es' : ''}`;
+
+  if (units.length === 0) {
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="9">Agrega lotes de subasta para comenzar el análisis</td></tr>';
+    return;
+  }
+
+  const sorted = [...classified].sort((a,b) => {
+    const order = {best:0, recommended:1, available:2, stockout:3, out:4, pending:5};
+    return (order[a.status]||5) - (order[b.status]||5);
+  });
+
+  tbody.innerHTML = sorted.map((u, i) => {
+    const usdStr = usdPerJpy ? `$${u.usd.toLocaleString('en-US')}` : '—';
+    const jpyStr = `¥${u.jpy.toLocaleString('en-US')}`;
+    const mgClass = u.margin >= 36 ? 'high' : u.margin >= 32 ? 'mid' : 'low';
+    const mgStr = u.margin ? `${u.margin}%` : '—';
+
+    const badgeMap = {
+      best:        '<span class="badge badge-best">⭐ Mejor Opción</span>',
+      recommended: '<span class="badge badge-recommended">✦ Recomendada</span>',
+      substitute:  '<span class="badge badge-substitute">↩ Sustituto</span>',
+      available:   '<span class="badge badge-available">✓ Disponible</span>',
+      stockout:    '<span class="badge badge-stockout">✕ Stock-Out</span>',
+      out:         '<span class="badge badge-out">Fuera de Rango</span>',
+      pending:     '<span class="badge badge-available">Pendiente</span>',
+    };
+
+    return `<tr>
+      <td style="color:var(--muted);font-size:.75rem">${i+1}</td>
+      <td class="td-model" style="${u.status==='stockout'?'opacity:.5;text-decoration:line-through':''}">${u.model}</td>
+      <td style="color:var(--muted)">${u.year || '—'}</td>
+      <td class="td-hours">${u.hours ? u.hours.toLocaleString('en-US') + ' h' : '—'}</td>
+      <td class="td-jpy">${jpyStr}</td>
+      <td class="td-usd">${usdStr}</td>
+      <td class="td-margin ${mgClass}">${mgStr}</td>
+      <td>${badgeMap[u.status] || ''}</td>
+      <td class="td-actions"><button class="btn-remove" onclick="removeUnit(${u.id})" title="Eliminar">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── RENDER RECS ────────────────────────────────────────────────────────────
+function renderRecs() {
+  const classified = classifyUnits(units);
+  const best = classified.find(u => u.status === 'best');
+  const recommended = classified.find(u => u.status === 'recommended');
+  const stockOuts = classified.filter(u => u.status === 'stockout');
+  const grid = document.getElementById('recGrid');
+
+  if (units.length === 0) {
+    grid.innerHTML = `
+      <div class="rec-card empty-rec">Agrega lotes para ver recomendaciones</div>
+      <div class="rec-card empty-rec">El sistema clasificará automáticamente las mejores opciones</div>`;
+    return;
+  }
+
+  const cards = [];
+
+  if (best) {
+    cards.push(`<div class="rec-card best">
+      <div class="rec-type best">⭐ Mejor Opción</div>
+      <div class="rec-model">${best.model}</div>
+      <div class="rec-detail">Año ${best.year || '—'} · ${best.hours ? best.hours.toLocaleString('en-US') + ' horas' : '— horas'}</div>
+      <div class="rec-price">${usdPerJpy ? '$'+best.usd.toLocaleString('en-US') : '—'} USD</div>
+      <div class="rec-price-jpy">¥${best.jpy.toLocaleString('en-US')} JPY</div>
+      <span class="rec-margin">${best.margin}% Margen Est.</span>
+      <div class="rec-reason">Menor horas en zona óptima $15,000–$18,000. Marca de alta demanda en México. Prioridad de compra máxima.</div>
+    </div>`);
+  } else {
+    cards.push(`<div class="rec-card empty-rec" style="background:rgba(248,113,113,.04);border-color:rgba(248,113,113,.2);color:var(--red)">Sin unidad en zona $15,000–$18,000<br><span style="font-size:.72rem;color:var(--muted)">Ajusta los lotes o activa sustitución</span></div>`);
+  }
+
+  if (recommended) {
+    cards.push(`<div class="rec-card recommended">
+      <div class="rec-type recommended">✦ Recomendada</div>
+      <div class="rec-model">${recommended.model}</div>
+      <div class="rec-detail">Año ${recommended.year || '—'} · ${recommended.hours ? recommended.hours.toLocaleString('en-US') + ' horas' : '— horas'}</div>
+      <div class="rec-price" style="color:var(--yellow)">${usdPerJpy ? '$'+recommended.usd.toLocaleString('en-US') : '—'} USD</div>
+      <div class="rec-price-jpy">¥${recommended.jpy.toLocaleString('en-US')} JPY</div>
+      <span class="rec-margin yellow">${recommended.margin}% Margen Est.</span>
+      <div class="rec-reason">Opción secundaria para maximizar flujo de caja. Precio más cercano a $13,000 dentro del rango aprobado.</div>
+    </div>`);
+  } else {
+    cards.push(`<div class="rec-card empty-rec">Sin segunda opción disponible</div>`);
+  }
+
+  // Substitute cards for stock-outs
+  stockOuts.forEach(u => {
+    cards.push(`<div class="rec-card substitute">
+      <div class="rec-type substitute">↩ Sustituto Activado</div>
+      <div class="rec-model" style="text-decoration:line-through;opacity:.5">${u.model}</div>
+      <div class="rec-detail" style="color:var(--orange);font-weight:700;margin-top:6px">${u.substituteNote}</div>
+      <div class="rec-reason">Esta unidad fue marcada como Stock-Out. El protocolo de sustitución se activa automáticamente.</div>
+    </div>`);
+  });
+
+  grid.innerHTML = cards.join('');
+}
+
+// ── ADD UNIT ───────────────────────────────────────────────────────────────
+function addUnit() {
+  const model  = document.getElementById('f_model').value.trim();
+  const jpy    = parseFloat(document.getElementById('f_jpy').value);
+  const year   = parseInt(document.getElementById('f_year').value) || null;
+  const hours  = parseInt(document.getElementById('f_hours').value) || null;
+  const avail  = document.getElementById('f_avail').value === '1';
+  const errEl  = document.getElementById('formError');
+
+  if (!model) { showErr('Ingresa el modelo de la unidad.'); return; }
+  if (!jpy || isNaN(jpy) || jpy <= 0) { showErr('Ingresa un precio en JPY válido.'); return; }
+  errEl.style.display = 'none';
+
+  units.push({ id: ++idCounter, model, jpy, year, hours, available: avail });
+
+  // Clear form
+  document.getElementById('f_model').value = '';
+  document.getElementById('f_jpy').value = '';
+  document.getElementById('f_year').value = '';
+  document.getElementById('f_hours').value = '';
+  document.getElementById('f_avail').value = '1';
+
+  renderTable();
+  renderRecs();
+}
+
+function removeUnit(id) {
+  units = units.filter(u => u.id !== id);
+  renderTable();
+  renderRecs();
+}
+
+function clearAll() {
+  units = [];
+  renderTable();
+  renderRecs();
+}
+
+function showErr(msg) {
+  const el = document.getElementById('formError');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+// ── DEMO DATA ──────────────────────────────────────────────────────────────
+function loadDemo() {
+  units = [];
+  const demo = [
+    { model:'Kubota KX155-5',       jpy:2150000, year:2021, hours:1580, available:true  },
+    { model:'Komatsu PC45MR-5',     jpy:2050000, year:2020, hours:2100, available:true  },
+    { model:'Caterpillar 305E2 CR', jpy:2420000, year:2020, hours:2800, available:true  },
+    { model:'Komatsu PC35MR-5',     jpy:1940000, year:2019, hours:2450, available:true  },
+    { model:'Kubota KX080-4',       jpy:2690000, year:2021, hours:1890, available:true  },
+    { model:'Caterpillar 303E CR',  jpy:2010000, year:2022, hours:740,  available:false },
+    { model:'Yanmar ViO45',         jpy:1870000, year:2020, hours:1940, available:true  },
+  ];
+  demo.forEach(u => units.push({...u, id:++idCounter}));
+  renderTable();
+  renderRecs();
+}
+
+// ── TABS ───────────────────────────────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', (i===0 && name==='table') || (i===1 && name==='recs'));
+  });
+  document.getElementById('tab-table').classList.toggle('active', name==='table');
+  document.getElementById('tab-recs').classList.toggle('active', name==='recs');
+}
+
+// ── JPY SLIDER ─────────────────────────────────────────────────────────────
+function sliderMove(jpyVal) {
+  const jpy = parseInt(jpyVal);
+  document.getElementById('sliderJpyVal').textContent = '¥' + jpy.toLocaleString('en-US');
+  // Also sync the text input
+  document.getElementById('jpyInput').value = jpy;
+  convertJpy();
+
+  const usdEl  = document.getElementById('sliderUsdVal');
+  const zoneEl = document.getElementById('sliderZone');
+
+  if (!usdPerJpy) {
+    usdEl.textContent = '— (cargando tasa)';
+    zoneEl.textContent = '—';
+    return;
+  }
+
+  const usd = Math.round(jpy * usdPerJpy);
+  usdEl.textContent = '$' + usd.toLocaleString('en-US');
+
+  if (usd >= 15000 && usd <= 18000) {
+    usdEl.style.color = 'var(--green)';
+    zoneEl.innerHTML = '<span style="color:var(--green)">⭐ Mejor Opción</span>';
+  } else if (usd >= 13000 && usd < 15000) {
+    usdEl.style.color = 'var(--yellow)';
+    zoneEl.innerHTML = '<span style="color:var(--yellow)">✦ Recomendada</span>';
+  } else if (usd > 18000 && usd <= 20000) {
+    usdEl.style.color = 'var(--orange)';
+    zoneEl.innerHTML = '<span style="color:var(--orange)">⚠ Límite Superior</span>';
+  } else {
+    usdEl.style.color = 'var(--red)';
+    zoneEl.innerHTML = '<span style="color:var(--red)">✕ Fuera de Rango</span>';
+  }
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+fetchRate();
+</script>
+</body>
+</html>
